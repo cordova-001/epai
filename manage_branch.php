@@ -156,10 +156,11 @@
                                                                     <div class='drodown'>
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
+
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                              <li><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li>
+                                                                              <li><span><em class='icon ni ni-eye'></em><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></span></li>
                                                                               <br>
-                                                                              <li><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='Edit Staff' class='icon ni ni-eye' /></li>
+                                                                              <li><em class='icon ni ni-activity-round'></em><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='Edit Staff' class='icon ni ni-eye' /></li>
                                                                                 
                                                                             </ul>
                                                                         </div>

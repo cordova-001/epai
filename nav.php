@@ -111,28 +111,28 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Disbursement</span></a>
+                            <a href="disbursement_report.php" class="nk-menu-link"><span class="nk-menu-text">Disbursement</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Expected Loan</span></a>
+                            <a href="expected_loan_report.php" class="nk-menu-link"><span class="nk-menu-text">Expected Loan</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Savings</span></a>
+                            <a href="savings_report.php" class="nk-menu-link"><span class="nk-menu-text">Savings</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Withdrawal</span></a>
+                            <a href="withdrawal_report.php" class="nk-menu-link"><span class="nk-menu-text">Withdrawal</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Fees</span></a>
+                            <a href="" class="nk-menu-link"><span class="nk-menu-text">Fees</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>
+                            <a href="loan_product_report.php" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Portfolio at Risk</span></a>
+                            <a href="portfolio_at_risk_report.php" class="nk-menu-link"><span class="nk-menu-text">Portfolio at Risk</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Provisioning</span></a>
+                            <a href="provisioning_report.php" class="nk-menu-link"><span class="nk-menu-text">Provisioning</span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->

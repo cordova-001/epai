@@ -196,3 +196,28 @@ function add_withdrawal()
     }
   }
 }
+
+
+function update_staff()
+{
+  if (isset($_GET['update_staff'])) {
+    $firstname = htmlentities(addslashes(($_GET['fname'])));
+    $lastname = htmlentities(addslashes(($_GET['lname'])));
+    $email = htmlentities(addslashes(($_GET['email'])));
+    $phone = htmlentities(addslashes(($_GET['phone'])));
+    $role = htmlentities(addslashes(($_GET['role'])));
+    $status = htmlentities(addslashes(($_GET['status'])));
+    $staff_id = htmlentities(addslashes(($_GET['staff_id'])));
+    $branch = htmlentities(addslashes(($_GET['branch'])));
+    include 'connect.inc.php';
+
+    if (empty($firstname) || empty($lastname) || empty($email) || empty($phone) || empty($role) || empty($status) || empty($staff_id) || empty($branch)) {
+      echo "All the fields are required before you can update the staff details";
+    } else {
+      $update = "UPDATE staff SET first_name = '$firstname', last_name = '$lastname', email = '$email', phone = '$phone', role = '$role', status = '$status' WHERE staff_id = '$staff_id' ";
+      if (mysqli_query($connect, $update)) {
+        echo "Update was successfull";
+      }
+    }
+  }
+}

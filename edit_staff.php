@@ -1,3 +1,25 @@
+<?php
+if (isset($_GET['edit_staff'])) {
+    $id = $_GET['id'];
+    include 'php/connect.inc.php';
+    $select = "SELECT * FROM staff WHERE staff_id = '$id' ";
+    $query = mysqli_query($connect, $select);
+    while ($row = mysqli_fetch_assoc($query)) {
+        $fname = $row['first_name'];
+        $lname = $row['last_name'];
+        $phone = $row['phone'];
+        $email = $row['email'];
+        $staff_id = $row['staff_id'];
+        $role = $row['role'];
+        $status = $row['status'];
+        $branch = $row['branch'];
+    }
+} else {
+    header('Location: manage_staff.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -39,7 +61,7 @@
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between">
                                         <div class="nk-block-head-content">
-                                            <h3 class="nk-block-title page-title">Deposit Management</h3>
+                                            <h3 class="nk-block-title page-title">Edit Staff</h3>
                                         </div><!-- .nk-block-head-content -->
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
@@ -48,9 +70,9 @@
                                         <div class="card-inner">
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="tabItem5">
-                                                    <h4 class="title nk-block-title">Deposit Management</h4>
+                                                    <h4 class="title nk-block-title">Edit Staff</h4>
                                                     <!-- <p>Processing of loan application.</p> -->
-                                                    <form action="deposit_details.php" method="GET" class="gy-3 form-settings">
+                                                    <form action="update_staff.php" method="GET" class="gy-3 form-settings">
                                                         <div class="row g-3 align-center">
 
 
@@ -59,28 +81,14 @@
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Customer ID</label>
+                                                                    <label class="form-label" for="site-email">First Name</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <select class='form-select js-select2' name='customer_id'>
-                                                                            <?php
-                                                                            include 'php/connect.inc.php';
-                                                                            $select = "SELECT * FROM customer";
-                                                                            $query = mysqli_query($connect, $select);
-                                                                            while ($row = mysqli_fetch_assoc($query)) {
-                                                                                $customer_id = $row['customer_id'];
-
-                                                                                echo "
-                                                                            <option>$customer_id</option>
-                                                                            ";
-                                                                            }
-                                                                            ?>
-
-                                                                        </select>
+                                                                        <input type="text" name="fname" required value="<?php echo $fname; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -88,56 +96,113 @@
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-copyright">Deposit Amount</label>
+                                                                    <label class="form-label" for="site-email">Last Name</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="number" name="lamount" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="lname" required value="<?php echo $lname; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Deposit Date</label>
+                                                                    <label class="form-label" for="site-email">Email</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" value="<?php echo date('d-m-Y'); ?>" class="form-control" name="date">
+                                                                        <input type="email" name="email" required value="<?php echo $email; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label">Deposited by</label>
+                                                                    <label class="form-label" for="site-email">Phone Number</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" name="date">
+                                                                        <input type="text" name="phone" required value="<?php echo $phone; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="row g-3 align-center">
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="site-email">Role</label>
 
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="form-group">
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="role" required value="<?php echo $role; ?>" class="form-control" id="site-copyright">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-3 align-center">
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="site-email">Staff ID</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="form-group">
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="staff_id" required value="<?php echo $staff_id; ?>" readonly class="form-control" id="site-copyright">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-3 align-center">
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="site-email">Status</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="form-group">
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="status" required value="<?php echo $status; ?>" class="form-control" id="site-copyright">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-3 align-center">
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="site-email">Branch</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="form-group">
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="branch" required value="<?php echo $branch; ?>" class="form-control" id="site-copyright">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                         <div class="row g-3">
                                                             <div class="col-lg-7">
                                                                 <div class="form-group mt-2">
-                                                                    <button type="submit" name="deposit" value="Proceed" class="btn btn-lg btn-primary">Proceed</button>
+                                                                    <button type="submit" name="update_staff" value="EDIT STAFF" class="btn btn-lg btn-primary">EDIT STAFF</button>
                                                                 </div>
                                                             </div>
                                                         </div>

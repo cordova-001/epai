@@ -2,7 +2,7 @@
 <html lang="zxx" class="js">
 
 <head>
-    <base href="../../">
+    <base href="">
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>DataTables - General | DashLite Admin Template</title>
+    <title>Finance Automation System</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.0.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.0.3">
@@ -24,7 +24,7 @@
             <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
 
                 <?php include 'nav.php'; ?>
-                
+
             </div>
             <!-- sidebar @e -->
             <!-- wrap @s -->
@@ -41,20 +41,20 @@
                                 <div class="components-preview wide-md mx-auto">
                                     <div class="nk-block-head nk-block-head-lg wide-sm">
                                         <div class="nk-block-head-content">
-                                            
+
                                             <h2 class="nk-block-title fw-normal">Account Management</h2>
-                                           
+
                                         </div>
                                     </div><!-- .nk-block-head -->
-                                    
+
                                     <div class="nk-block nk-block-lg">
                                         <div class="nk-block-head-content">
                                             <div class="toggle-wrap nk-block-tools-toggle">
                                                 <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="more-options"><em class="icon ni ni-more-v"></em></a>
                                                 <div class="toggle-expand-content" data-content="more-options">
                                                     <ul class="nk-block-tools g-3">
-                                                        
-                                                       
+
+
                                                         <li class="nk-block-tools-opt">
                                                             <a href="#" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
                                                             <a class="btn btn-primary d-none d-md-inline-flex" data-bs-toggle="modal" href="#instructor-add"><em class="icon ni ni-plus"></em><span>Add</span></a>
@@ -71,21 +71,25 @@
                                                 <table class="datatable-init-export nowrap table" data-export-title="Export">
                                                     <thead>
                                                         <tr>
-                                                            <th>Name</th>
-                                                            <th>Position</th>
-                                                            <th>Office</th>
-                                                            <th>Age</th>
-                                                            <th>Start date</th>
-                                                            <th>Salary</th>
+                                                            <th>Customer ID</th>
+                                                            <th>Name </th>
+                                                            <th>Loan Amount</th>
+                                                            <th>Rate</th>
+                                                            <th>Repayment Amount</th>
+
+                                                            <th>Status</th>
+                                                            <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        
+
                                                         <tr>
                                                             <td>Michael Bruce</td>
                                                             <td>Javascript Developer</td>
                                                             <td>Singapore</td>
                                                             <td>29</td>
+
+                                                            <td>$183,000</td>
                                                             <td>2011/06/27</td>
                                                             <td>$183,000</td>
                                                         </tr>
@@ -94,16 +98,18 @@
                                                             <td>Customer Support</td>
                                                             <td>New York</td>
                                                             <td>27</td>
-                                                            <td>2011/01/25</td>
+
                                                             <td>$112,000</td>
+                                                            <td>2011/06/27</td>
+                                                            <td>$183,000</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div><!-- .card-preview -->
                                     </div> <!-- nk-block -->
-                                    
-                                    
+
+
                                 </div><!-- .components-preview -->
                             </div>
                         </div>

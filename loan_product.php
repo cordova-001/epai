@@ -80,14 +80,14 @@
                                                     include 'php/connect.inc.php';
                                                     $select = "SELECT * FROM loanproduct";
                                                     $query = mysqli_query($connect, $select);
-                                                    while($fetch = mysqli_fetch_assoc($query)){
-                                                      $pname = $fetch['product_name'];
-                                                      $pid = $fetch['product_id'];
-                                                      $max = number_format($fetch['max_amount']);
-                                                      $min = number_format($fetch['min_amount']);
-                                                      $desc = $fetch['description'];
+                                                    while ($fetch = mysqli_fetch_assoc($query)) {
+                                                        $pname = $fetch['product_name'];
+                                                        $pid = $fetch['product_id'];
+                                                        $max = number_format($fetch['max_amount']);
+                                                        $min = number_format($fetch['min_amount']);
+                                                        $desc = $fetch['description'];
 
-                                                    echo "<div class='nk-tb-item'>
+                                                        echo "<div class='nk-tb-item'>
                                                         <div class='nk-tb-col nk-tb-col-check'>
 
                                                         </div>
@@ -120,7 +120,7 @@
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                                <li><a href='html/lms/instructor-details.html'><em class='icon ni ni-eye'></em><span>View Details</span></a></li>
+                                                                                <li><em class='icon ni ni-eye'></em><span>View Details</span></a></li>
                                                                                 <li><a href=''><em class='icon ni ni-activity-round'></em><span>Activities</span></a></li>
                                                                             </ul>
                                                                         </div>
@@ -129,8 +129,8 @@
                                                             </ul>
                                                         </div>
                                                     </div><!-- .nk-tb-item -->";
-                                                  }
-                                                   ?>
+                                                    }
+                                                    ?>
 
 
                                                 </div><!-- .nk-tb-list -->
@@ -217,7 +217,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-label" for="phone-no">Interest Rate</label>
-                                    <input type="number" step="0.1" name="rate" class="form-control"  placeholder="Rate">
+                                    <input type="number" step="0.1" name="rate" class="form-control" placeholder="Rate">
                                 </div>
                             </div>
 

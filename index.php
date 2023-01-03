@@ -74,19 +74,19 @@
                                                                     <p>In last 30 days</p>
                                                                 </div>
                                                                 <div class="card-tools">
-                                                                    <em class="card-hint icon ni ni-help-fill" data-bs-toggle="tooltip" data-bs-placement="left" title="Students Enrolement"></em>
+                                                                    <em class="card-hint icon ni ni-help-fill" data-bs-toggle="tooltip" data-bs-placement="left" title="Financial System"></em>
                                                                 </div>
                                                             </div>
                                                             <div class="align-end gy-3 gx-5 flex-wrap flex-md-nowrap flex-lg-wrap flex-xxl-nowrap">
                                                                 <div class="nk-sale-data-group flex-md-nowrap g-4">
-                                                                    <div class="nk-sale-data">
+                                                                    <!-- <div class="nk-sale-data">
                                                                         <span class="amount">5490 <span class="change down text-danger"><em class="icon ni ni-arrow-long-down"></em>16.93%</span></span>
                                                                         <span class="sub-title">This Month</span>
                                                                     </div>
                                                                     <div class="nk-sale-data">
                                                                         <span class="amount">1480<span class="change up text-success"><em class="icon ni ni-arrow-long-up"></em>4.26%</span></span>
                                                                         <span class="sub-title">This Week</span>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                                 <div class="nk-sales-ck sales-revenue">
                                                                     <canvas class="student-enrole" id="enrolement"></canvas>
@@ -159,7 +159,7 @@
                                                             </div>
                                                             <div class='total'>
                                                                 <div class='amount'><b>Repayment Amount</b>
-                                                            </div>
+                                                                </div>
                                                         </li>
                                                     </ul>
 
@@ -167,13 +167,13 @@
                                                     include 'php/connect.inc.php';
                                                     $select = "SELECT * FROM loan WHERE status = 'Pending' ";
                                                     $query = mysqli_query($connect, $select);
-                                                    while($row = mysqli_fetch_assoc($query)){
-                                                      $fname = $row['fname'];
-                                                      $lname = $row['lname'];
-                                                      $customer_id = $row['customer_id'];
-                                                      $repayment = $row['repayment'];
+                                                    while ($row = mysqli_fetch_assoc($query)) {
+                                                        $fname = $row['fname'];
+                                                        $lname = $row['lname'];
+                                                        $customer_id = $row['customer_id'];
+                                                        $repayment = $row['repayment'];
 
-                                                    echo "<ul class='nk-top-products'>
+                                                        echo "<ul class='nk-top-products'>
                                                         <li class='item'>
 
                                                             <div class='info'>
@@ -184,8 +184,8 @@
                                                             </div>
                                                         </li>
                                                     </ul>";
-                                                  }
-                                                  ?>
+                                                    }
+                                                    ?>
 
 
                                                 </div><!-- .card-inner -->
@@ -222,7 +222,7 @@
                                                             </div>
                                                             <div class='total'>
                                                                 <div class='amount'><b>Repayment Amount</b>
-                                                            </div>
+                                                                </div>
                                                         </li>
                                                     </ul>
 
@@ -230,13 +230,13 @@
                                                     include 'php/connect.inc.php';
                                                     $select = "SELECT * FROM loan WHERE status = 'Pending' ";
                                                     $query = mysqli_query($connect, $select);
-                                                    while($row = mysqli_fetch_assoc($query)){
-                                                      $fname = $row['fname'];
-                                                      $lname = $row['lname'];
-                                                      $customer_id = $row['customer_id'];
-                                                      $repayment = $row['repayment'];
+                                                    while ($row = mysqli_fetch_assoc($query)) {
+                                                        $fname = $row['fname'];
+                                                        $lname = $row['lname'];
+                                                        $customer_id = $row['customer_id'];
+                                                        $repayment = $row['repayment'];
 
-                                                    echo "<ul class='nk-top-products'>
+                                                        echo "<ul class='nk-top-products'>
                                                         <li class='item'>
 
                                                             <div class='info'>
@@ -247,8 +247,8 @@
                                                             </div>
                                                         </li>
                                                     </ul>";
-                                                  }
-                                                  ?>
+                                                    }
+                                                    ?>
                                                 </div><!-- .card-inner -->
                                             </div><!-- .card -->
                                         </div><!-- .col -->

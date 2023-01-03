@@ -123,7 +123,7 @@
                             <a href="withdrawal_report.php" class="nk-menu-link"><span class="nk-menu-text">Withdrawal</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="" class="nk-menu-link"><span class="nk-menu-text">Fees</span></a>
+                            <a href="fees_report" class="nk-menu-link"><span class="nk-menu-text">Fees</span></a>
                         </li>
                         <li class="nk-menu-item">
                             <a href="loan_product_report.php" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>

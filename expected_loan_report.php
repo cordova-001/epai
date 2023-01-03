@@ -43,29 +43,69 @@
                                 <div class="nk-block-head nk-block-head-lg wide-sm">
                                     <div class="nk-block-head-content">
 
-                                        <h2 class="nk-block-title fw-normal">Loan Management</h2>
+                                        <h2 class="nk-block-title fw-normal">Expected Loan Report</h2>
 
                                     </div>
                                 </div><!-- .nk-block-head -->
-
                                 <div class="nk-block nk-block-lg">
-                                    <div class="nk-block-head-content" style="width: 100%;">
-                                        <div class="toggle-wrap nk-block-tools-toggle">
-                                            <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="more-options"><em class="icon ni ni-more-v"></em></a>
-                                            <div class="toggle-expand-content" data-content="more-options">
-                                                <ul class="nk-block-tools g-3">
+                                    <div class="card">
+                                        <div class="card-inner">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tabItem5">
+                                                    <!-- <h4 class="title nk-block-title">Edit Staff</h4> -->
+                                                    <!-- <p>Processing of loan application.</p> -->
+                                                    <ul class="nk-block-tools g-3">
+                                                        <li>
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+
+                                                                </div>
+                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+
+                                                                </div>
+                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+
+                                                                </div>
+                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+
+                                                                </div>
+                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+
+                                                        </li>
+                                                        <div class="form-group mt-2">
+                                                            <button type="submit" name="request_loan" class="btn btn-lg btn-primary">Create Report</button>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                                <!--tab pan -->
 
 
-                                                    <li class="nk-block-tools-opt">
-                                                        <a href="#" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
-                                                        <a class="btn btn-primary d-none d-md-inline-flex" data-bs-toggle="modal" href="#instructor-add"><em class="icon ni ni-plus"></em><span>Add</span></a>
-                                                    </li>
-                                                </ul>
                                             </div>
                                         </div>
-                                    </div><!-- .nk-block-head-content -->
-                                    <br>
+                                        <!--card inner-->
+                                    </div>
+                                    <!--card-->
+                                </div>
 
+                                <div class="nk-block nk-block-lg">
 
                                     <div class="card card-bordered card-preview">
                                         <div class="card-inner">
@@ -80,7 +120,7 @@
 
                                                         <th>Application date</th>
                                                         <th>Status</th>
-                                                        <th>Action</th>
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -108,23 +148,7 @@
 
                                                             <td>$date</td>
                                                             <td>$status</td>
-                                                            <td>
-                                                            <div class='nk-tb-col nk-tb-col-tools'>
-                                                            <ul class='nk-tb-actions gx-1'>
-                                                                <li>
-                                                                    <div class='drodown'>
-                                                                        <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
-                                                                        <div class='dropdown-menu dropdown-menu-end'>
-                                                                            <ul class='link-list-opt no-bdr'>
-                                                                                <li><em class='icon ni ni-eye'></em><span>View Details</span></a></li>
-                                                                                <li><a href=''><em class='icon ni ni-activity-round'></em><span>Activities</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                            </td>
+                                                            
                                                         </tr>
                                                     ";
                                                     }

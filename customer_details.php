@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['client_details'])) {
+    $customer_id = $_GET['customer_id'];
+    include 'php/connect.inc.php';
+} else {
+    header("Location: individual_client");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 

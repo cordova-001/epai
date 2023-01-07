@@ -1,3 +1,25 @@
+<?php
+if (isset($_GET['branch_details'])) {
+    $bname = $_GET['bname'];
+    include 'php/connect.inc.php';
+    $select = "SELECT * FROM customer WHERE branch = '$bname'";
+    $query = mysqli_query($connect, $select);
+
+    $nums = mysqli_num_rows($query);
+    echo $nums;
+
+    $chkL = "SELECT * FROM loan WHERE status = 'Approved' and branch = '$bname'";
+    $query = mysqli_query($connect, $chkL);
+    $loanApproved = mysqli_num_rows($query);
+
+    $chkL = "SELECT * FROM loan WHERE status = 'Disbursed' and branch = '$bname'";
+    $query = mysqli_query($connect, $chkL);
+    $loanDisbursed = mysqli_num_rows($query);
+} else {
+    header("Location: manage_branch");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -39,7 +61,7 @@
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between">
                                         <div class="nk-block-head-content">
-                                            <h4 class="nk-block-title page-title"> Ifako Ijaye Branch - 001 </h4>
+                                            <h4 class="nk-block-title page-title"> <?php echo $bname; ?> - 001 </h4>
                                         </div><!-- .nk-block-head-content -->
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
@@ -60,7 +82,7 @@
                                                                 </div>
                                                                 <div class="data">
                                                                     <div class="data-group">
-                                                                        <div class="amount">329</div>
+                                                                        <div class="amount"><?php echo $nums; ?></div>
                                                                         <div class="info text-end"><span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last week</span></div>
                                                                     </div>
                                                                 </div>
@@ -109,7 +131,7 @@
                                                                 </div>
                                                                 <div class="data">
                                                                     <div class="data-group">
-                                                                        <div class="amount">329</div>
+                                                                        <div class="amount"><?php echo $loanApproved; ?></div>
                                                                         <div class="info text-end"><span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last week</span></div>
                                                                     </div>
                                                                 </div>
@@ -131,7 +153,7 @@
                                                                 </div>
                                                                 <div class="data">
                                                                     <div class="data-group">
-                                                                        <div class="amount">194</div>
+                                                                        <div class="amount"><?php echo $loanDisbursed; ?></div>
                                                                         <div class="info text-end"><span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last week</span></div>
                                                                     </div>
                                                                 </div>
@@ -224,20 +246,23 @@
                                                         </thead>
                                                         <tbody>
                                                             <?php
-                                                            include 'php/connect.inc.php';
-                                                            $select = "SELECT * FROM loan";
-                                                            $query = mysqli_query($connect, $select);
-                                                            while ($row = mysqli_fetch_assoc($query)) {
-                                                                $customer_id = $row['customer_id'];
-                                                                $fname = $row['fname'];
-                                                                $lname = $row['lname'];
-                                                                $lamount = $row['lamount'];
-                                                                $repayment = $row['repayment'];
-                                                                $rate = $row['rate'];
-                                                                $date = $row['application_date'];
-                                                                $status = $row['status'];
+                                                            if (isset($_GET['branch_details'])) {
+                                                                $bname = $_GET['bname'];
 
-                                                                echo "
+                                                                include 'php/connect.inc.php';
+                                                                $select = "SELECT * FROM loan WHERE branch = '$bname' ";
+                                                                $query = mysqli_query($connect, $select);
+                                                                while ($row = mysqli_fetch_assoc($query)) {
+                                                                    $customer_id = $row['customer_id'];
+                                                                    $fname = $row['fname'];
+                                                                    $lname = $row['lname'];
+                                                                    $lamount = $row['lamount'];
+                                                                    $repayment = $row['repayment'];
+                                                                    $rate = $row['rate'];
+                                                                    $date = $row['application_date'];
+                                                                    $status = $row['status'];
+
+                                                                    echo "
                                                         <tr>
                                                             <td>$customer_id</td>
                                                             <td>$fname  $lname</td>
@@ -251,6 +276,7 @@
                                                             
                                                         </tr>
                                                     ";
+                                                                }
                                                             }
 
                                                             ?>
@@ -260,7 +286,7 @@
                                             </div><!-- .card-preview -->
                                         </div> <!-- nk-block -->
 
-                                        <div class="nk-block nk-block-lg">
+                                        <!-- <div class="nk-block nk-block-lg">
                                             <div class="card card-bordered card-preview">
                                                 <div class="card-inner">
                                                     <div class="card-title-group">
@@ -287,43 +313,43 @@
                                                         </thead>
                                                         <tbody>
                                                             <?php
-                                                            include 'php/connect.inc.php';
-                                                            $select = "SELECT * FROM loan";
-                                                            $query = mysqli_query($connect, $select);
-                                                            while ($row = mysqli_fetch_assoc($query)) {
-                                                                $customer_id = $row['customer_id'];
-                                                                $fname = $row['fname'];
-                                                                $lname = $row['lname'];
-                                                                $lamount = $row['lamount'];
-                                                                $repayment = $row['repayment'];
-                                                                $rate = $row['rate'];
-                                                                $date = $row['application_date'];
-                                                                $status = $row['status'];
+                                                            //         include 'php/connect.inc.php';
+                                                            //         $select = "SELECT * FROM loan";
+                                                            //         $query = mysqli_query($connect, $select);
+                                                            //         while ($row = mysqli_fetch_assoc($query)) {
+                                                            //             $customer_id = $row['customer_id'];
+                                                            //             $fname = $row['fname'];
+                                                            //             $lname = $row['lname'];
+                                                            //             $lamount = $row['lamount'];
+                                                            //             $repayment = $row['repayment'];
+                                                            //             $rate = $row['rate'];
+                                                            //             $date = $row['application_date'];
+                                                            //             $status = $row['status'];
 
-                                                                echo "
-                                                        <tr>
-                                                            <td>$customer_id</td>
-                                                            <td>$fname  $lname</td>
-                                                            <td>$lamount</td>
-                                                            <td>$rate</td>
-                                                            <td>$repayment</td>
+                                                            //             echo "
+                                                            //     <tr>
+                                                            //         <td>$customer_id</td>
+                                                            //         <td>$fname  $lname</td>
+                                                            //         <td>$lamount</td>
+                                                            //         <td>$rate</td>
+                                                            //         <td>$repayment</td>
 
-                                                            <td>$date</td>
-                                                            <td>$status</td>
-                                                             <td>View</td>
-                                                            
-                                                        </tr>
-                                                    ";
-                                                            }
+                                                            //         <td>$date</td>
+                                                            //         <td>$status</td>
+                                                            //          <td>View</td>
+
+                                                            //     </tr>
+                                                            // ";
+                                                            //         }
 
                                                             ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </div><!-- .card-preview -->
-                                        </div> <!-- nk-block -->
+                                            </div>
+                                        </div>  -->
 
-                                        <div class="nk-block nk-block-lg">
+                                        <!-- <div class="nk-block nk-block-lg">
                                             <div class="card card-bordered card-preview">
                                                 <div class="card-inner">
                                                     <div class="card-title-group">
@@ -350,41 +376,41 @@
                                                         </thead>
                                                         <tbody>
                                                             <?php
-                                                            include 'php/connect.inc.php';
-                                                            $select = "SELECT * FROM loan";
-                                                            $query = mysqli_query($connect, $select);
-                                                            while ($row = mysqli_fetch_assoc($query)) {
-                                                                $customer_id = $row['customer_id'];
-                                                                $fname = $row['fname'];
-                                                                $lname = $row['lname'];
-                                                                $lamount = $row['lamount'];
-                                                                $repayment = $row['repayment'];
-                                                                $rate = $row['rate'];
-                                                                $date = $row['application_date'];
-                                                                $status = $row['status'];
+                                                            //         include 'php/connect.inc.php';
+                                                            //         $select = "SELECT * FROM loan";
+                                                            //         $query = mysqli_query($connect, $select);
+                                                            //         while ($row = mysqli_fetch_assoc($query)) {
+                                                            //             $customer_id = $row['customer_id'];
+                                                            //             $fname = $row['fname'];
+                                                            //             $lname = $row['lname'];
+                                                            //             $lamount = $row['lamount'];
+                                                            //             $repayment = $row['repayment'];
+                                                            //             $rate = $row['rate'];
+                                                            //             $date = $row['application_date'];
+                                                            //             $status = $row['status'];
 
-                                                                echo "
-                                                        <tr>
-                                                            <td>$customer_id</td>
-                                                            <td>$fname  $lname</td>
-                                                            <td>$lamount</td>
-                                                            <td>$rate</td>
-                                                            <td>$repayment</td>
+                                                            //             echo "
+                                                            //     <tr>
+                                                            //         <td>$customer_id</td>
+                                                            //         <td>$fname  $lname</td>
+                                                            //         <td>$lamount</td>
+                                                            //         <td>$rate</td>
+                                                            //         <td>$repayment</td>
 
-                                                            <td>$date</td>
-                                                            <td>$status</td>
-                                                             <td>View</td>
-                                                            
-                                                        </tr>
-                                                    ";
-                                                            }
+                                                            //         <td>$date</td>
+                                                            //         <td>$status</td>
+                                                            //          <td>View</td>
+
+                                                            //     </tr>
+                                                            // ";
+                                                            //         }
 
                                                             ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </div><!-- .card-preview -->
-                                        </div> <!-- nk-block -->
+                                            </div>
+                                        </div> -->
 
 
 

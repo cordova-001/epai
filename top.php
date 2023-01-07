@@ -5,7 +5,7 @@
                 <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
             </div>
             <div class="nk-header-brand d-xl-none">
-                <a href="html/index.html" class="logo-link">
+                <a href="index.php" class="logo-link">
                     <h2>E<sup>2</sup>PAI</h2>
                 </a>
             </div><!-- .nk-header-brand -->

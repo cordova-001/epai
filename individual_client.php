@@ -146,13 +146,13 @@
 
                                                                 <li>
                                                                     <div class='drodown'>
-                                                                    <form method='post'>
+                                                                    <form method='get'>
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                              <li><input name='client_details' type='submit' formaction='customer_details.php' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li><br>
+                                                                              <li><input name='client_details' type='submit' formaction='customer_details' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li><br>
                                                                               <li><input type='text' name='customer_id'  hidden value='$customer_id'  /></li>
-                                                                                <li><input name='edit_client' type='submit' formaction='edit_client.php' style='border: 0px; background-color: white; float: center;' value='Edit Customer' class='icon ni ni-eye' /></li>
+                                                                                <li><input name='edit_client' type='submit' formaction='edit_client' style='border: 0px; background-color: white; float: center;' value='Edit Customer' class='icon ni ni-eye' /></li>
                                                                             </ul>
                                                                         </div>
                                                                         </form>

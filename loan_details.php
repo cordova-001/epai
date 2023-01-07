@@ -1,29 +1,26 @@
 <?php
-if (isset($_GET['edit_client'])) {
-    $id = $_GET['customer_id'];
+if (isset($_GET['click'])) {
+    $id = $_GET['id'];
     include 'php/connect.inc.php';
-    $select = "SELECT * FROM customer WHERE customer_id = '$id' ";
+    $select = "SELECT * FROM loan WHERE id = '$id' ";
     $query = mysqli_query($connect, $select);
     while ($row = mysqli_fetch_assoc($query)) {
-        $fname = $row['first_name'];
-        $lname = $row['last_name'];
+        $id = $row['id'];
+        $customer_id = $row['customer_id'];
+        $fname = $row['fname'];
+        $lname = $row['lname'];
         $phone = $row['phone'];
         $email = $row['email'];
-        $customer_id = $row['customer_id'];
-        $address = $row['address'];
-        $gender = $row['gender'];
-        $soo = $row['state_of_origin'];
-        $lga = $row['lga'];
-        $nok = $row['next_of_kin'];
-        $anok = $row['addy_of_nok'];
-        $dob = $row['date_of_birth'];
-        $occupation = $row['occupation'];
+        $lamount = $row['lamount'];
+        $rate = $row['rate'];
+        $repayment = $row['repayment'];
+        $application_date = $row['application_date'];
         $status = $row['status'];
-        $branch = $row['branch'];
+        $bname = $row['branch_name'];
         $bid = $row['bid'];
     }
 } else {
-    header('Location: individual_client.php');
+    header('Location: loan_management.php');
 }
 
 ?>
@@ -69,7 +66,7 @@ if (isset($_GET['edit_client'])) {
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between">
                                         <div class="nk-block-head-content">
-                                            <h3 class="nk-block-title page-title">Edit Customer</h3>
+                                            <h3 class="nk-block-title page-title">Loan Details</h3>
                                         </div><!-- .nk-block-head-content -->
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
@@ -78,14 +75,29 @@ if (isset($_GET['edit_client'])) {
                                         <div class="card-inner">
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="tabItem5">
-                                                    <h4 class="title nk-block-title">Edit Customer</h4>
+                                                    <h4 class="title nk-block-title">Loan Details </h4>
                                                     <!-- <p>Processing of loan application.</p> -->
-                                                    <form action="update_staff.php" method="GET" class="gy-3 form-settings">
+                                                    <form method="post" class="gy-3 form-settings">
                                                         <div class="row g-3 align-center">
 
 
                                                         </div>
 
+                                                        <div class="row g-3 align-center">
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="site-email">Customer ID</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <div class="form-group">
+                                                                    <div class="form-control-wrap">
+                                                                        <input type="text" name="cid" readonly required value="<?php echo $customer_id; ?>" class="form-control" id="site-copyright">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
@@ -96,7 +108,8 @@ if (isset($_GET['edit_client'])) {
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="fname" required value="<?php echo $fname; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="fname" readonly required value="<?php echo $fname; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="id" hidden value="<?php echo $id; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -111,37 +124,7 @@ if (isset($_GET['edit_client'])) {
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="lname" required value="<?php echo $lname; ?>" class="form-control" id="site-copyright">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row g-3 align-center">
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Gender</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="form-group">
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="email" name="text" required value="<?php echo $gender; ?>" class="form-control" id="site-copyright">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row g-3 align-center">
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Phone Number</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="form-group">
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" name="phone" required value="<?php echo $phone; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="lname" readonly required value="<?php echo $lname; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -156,7 +139,7 @@ if (isset($_GET['edit_client'])) {
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="email" name="email" required value="<?php echo $email; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="email" name="email" readonly required value="<?php echo $email; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -164,14 +147,14 @@ if (isset($_GET['edit_client'])) {
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Address</label>
+                                                                    <label class="form-label" for="site-email">Phone Number</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="address" required value="<?php echo $address; ?>" readonly class="form-control" id="site-copyright">
+                                                                        <input type="text" name="phone" readonly required value="<?php echo $phone; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -179,29 +162,14 @@ if (isset($_GET['edit_client'])) {
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-email">State of Origin</label>
+                                                                    <label class="form-label" for="site-email">Requested Loan Amount</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="soo" value="<?php echo $soo; ?>" class="form-control" id="site-copyright">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row g-3 align-center">
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Local Government</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="form-group">
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" name="lga" required value="<?php echo $lga; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="lamount" readonly required value="<?php echo $lamount; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -210,14 +178,14 @@ if (isset($_GET['edit_client'])) {
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Next of Kin</label>
+                                                                    <label class="form-label" for="site-email">Interest Rate</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="nok" required value="<?php echo $nok; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="rate" readonly required value="<?php echo $rate; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -225,59 +193,30 @@ if (isset($_GET['edit_client'])) {
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Address of Next of Kin</label>
+                                                                    <label class="form-label" for="site-email">Repayment Loan Amount</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="anok" required value="<?php echo $anok; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="repayment" readonly required value="<?php echo $repayment; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="row g-3 align-center">
                                                             <div class="col-lg-4">
                                                                 <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Date of Birth</label>
+                                                                    <label class="form-label" for="site-email">Application Date</label>
 
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="dob" required value="<?php echo $dob; ?>" class="form-control" id="site-copyright">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row g-3 align-center">
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Occupation</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="form-group">
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" name="occupation" required value="<?php echo $occupation; ?>" class="form-control" id="site-copyright">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row g-3 align-center">
-                                                            <div class="col-lg-4">
-                                                                <div class="form-group">
-                                                                    <label class="form-label" for="site-email">Customer ID</label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-8">
-                                                                <div class="form-group">
-                                                                    <div class="form-control-wrap">
-                                                                        <input type="text" name="customer_id" required value="<?php echo $customer_id; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="adate" readonly required value="<?php echo $application_date; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -292,7 +231,7 @@ if (isset($_GET['edit_client'])) {
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="status" required value="<?php echo $status; ?>" readonly class="form-control" id="site-copyright">
+                                                                        <input type="text" name="status" readonly required value="<?php echo $status; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -307,18 +246,21 @@ if (isset($_GET['edit_client'])) {
                                                             <div class="col-lg-8">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" name="branch" required value="<?php echo $branch; ?>" class="form-control" id="site-copyright">
+                                                                        <input type="text" name="branch" readonly required value="<?php echo $bname; ?>" class="form-control" id="site-copyright">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
 
+
                                                         <div class="row g-3">
                                                             <div class="col-lg-7">
                                                                 <div class="form-group mt-2">
-                                                                    <button type="submit" name="update_staff" value="EDIT STAFF" class="btn btn-lg btn-primary">EDIT STAFF</button>
+                                                                    <button type="submit" name="approve_loan" formaction="loan_approval.php" class="btn btn-lg btn-primary">APPROVE LOAN APPLICATION</button>
+                                                                    <button type="submit" name="reject_loan" formaction="loan_reject.php" class="btn btn-lg btn-danger">REJECT LOAN APPLICATION</button>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </form>

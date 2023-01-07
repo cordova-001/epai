@@ -204,7 +204,7 @@
                                                                               <li><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li>
                                                                               <br>
                                                                               
-                                                                              <li><input name='edit_staff' formaction='edit_staff.php' type='submit' style='border: 0px; background-color: white; float: center;' value='Edit Staff' class='icon ni ni-eye' /></li>
+                                                                              <li><input name='edit_staff' formaction='edit_staff' type='submit' style='border: 0px; background-color: white; float: center;' value='Edit Staff' class='icon ni ni-eye' /></li>
                                                                                 
                                                                             </ul>
                                                                         </div>

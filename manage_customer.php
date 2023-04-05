@@ -57,21 +57,10 @@
                                                                 <input type="text" class="form-control" id="default-04" placeholder="Search by name">
                                                             </div>
                                                         </li>
-                                                        <li>
-                                                            <div class="drodown">
-                                                                <a href="#" class="dropdown-toggle dropdown-indicator btn btn-outline-light btn-white" data-bs-toggle="dropdown">Status</a>
-                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                    <ul class="link-list-opt no-bdr">
-                                                                        <li><a href="#"><span>Actived</span></a></li>
-                                                                        <li><a href="#"><span>Inactived</span></a></li>
-                                                                        <li><a href="#"><span>Blocked</span></a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+
                                                         <li class="nk-block-tools-opt">
                                                             <a href="#" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
-                                                            <a class="btn btn-primary d-none d-md-inline-flex" data-bs-toggle="modal" href="#instructor-add"><em class="icon ni ni-plus"></em><span>Add</span></a>
+                                                            <a class="btn btn-primary d-none d-md-inline-flex" href="add_customer"><em class="icon ni ni-plus"></em><span>Add</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -85,12 +74,7 @@
                                             <div class="card-inner p-0">
                                                 <div class="nk-tb-list nk-tb-ulist">
                                                     <div class="nk-tb-item nk-tb-head">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid">
-                                                                <label class="custom-control-label" for="uid"></label>
-                                                            </div>
-                                                        </div>
+
                                                         <div class="nk-tb-col"><span class="sub-text">Name</span></div>
                                                         <div class="nk-tb-col tb-col-md"><span class="sub-text">Phone</span></div>
                                                         <div class="nk-tb-col tb-col-lg"><span class="sub-text">Email</span></div>
@@ -102,13 +86,7 @@
                                                                 <li>
                                                                     <div class="drodown">
                                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email to All</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-na"></em><span>Suspend Selected</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Seleted</span></a></li>
-                                                                            </ul>
-                                                                        </div>
+
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -135,14 +113,9 @@
                                                         $customer_id = $row['customer_id'];
                                                         $status = $row['status'];
                                                         echo "<div class='nk-tb-item'>
-                                                        <div class='nk-tb-col nk-tb-col-check'>
-                                                            <div class='custom-control custom-control-sm custom-checkbox notext'>
-                                                                <input type='checkbox' class='custom-control-input' id='uid1'>
-                                                                <label class='custom-control-label' for='uid1'></label>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class='nk-tb-col'>
-                                                            <a href='html/lms/instructor-details.html'>
+                                                            
                                                                 <div class='user-card'>
 
                                                                     <div class='user-info'>
@@ -150,7 +123,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            
                                                         </div>
                                                         <div class='nk-tb-col tb-col-md'>
                                                             <span>$phone</span>
@@ -173,14 +146,16 @@
 
                                                                 <li>
                                                                     <div class='drodown'>
+                                                                    <form method='get'>
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                              <li><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li>
-                                                                                <!-- <li><a href='html/lms/instructor-details.html'><em ></em><span></span></a></li> -->
-                                                                                <!-- <li><a href='#'><em class='icon ni ni-activity-round'></em><span>Activities</span></a></li> -->
+                                                                              <li><input name='client_details' type='submit' formaction='customer_details' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li><br>
+                                                                              <li><input type='text' name='customer_id'  hidden value='$customer_id'  /></li>
+                                                                                <li><input name='edit_client' type='submit' formaction='edit_client' style='border: 0px; background-color: white; float: center;' value='Edit Customer' class='icon ni ni-eye' /></li>
                                                                             </ul>
                                                                         </div>
+                                                                        </form>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -198,7 +173,7 @@
                                             </div>
                                             <div class="card-inner">
                                                 <div class="nk-block-between-md g-3">
-                                                    <div class="g">
+                                                    <!-- <div class="g">
                                                         <ul class="pagination justify-content-center justify-content-md-start">
                                                             <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-left"></em></a></li>
                                                             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -207,13 +182,13 @@
                                                             <li class="page-item"><a class="page-link" href="#">6</a></li>
                                                             <li class="page-item"><a class="page-link" href="#">7</a></li>
                                                             <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-right"></em></a></li>
-                                                        </ul><!-- .pagination -->
-                                                    </div>
+                                                        </ul> .pagination 
+                                                    </div> -->
                                                     <div class="g">
-                                                        <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
+                                                        <!-- <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
                                                             <div>Page</div>
 
-                                                        </div>
+                                                        </div> -->
                                                     </div><!-- .pagination-goto -->
                                                 </div><!-- .nk-block-between -->
                                             </div>
@@ -362,13 +337,54 @@
                                         $query = mysqli_query($connect, $select);
                                         while ($row = mysqli_fetch_assoc($query)) {
                                             $bid = $row['branch_id'];
-                                            $bname = $row['branch_name'];
+                                            $bname = $row['branch'];
 
                                             echo "<option>$bname</option>";
                                         }
                                         ?>
 
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Center</label>
+                                    <select class='form-select js-select2' id='branch' name='center'>
+                                        <?php
+                                        include 'php/connect.inc.php';
+                                        $select = "SELECT * FROM center";
+                                        $query = mysqli_query($connect, $select);
+                                        while ($row = mysqli_fetch_assoc($query)) {
+                                            $cid = $row['center_id'];
+                                            $cname = $row['center_name'];
+
+                                            echo "<option>$cname</option>";
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Utility Bill</label>
+                                    <input type="file" name="utility" class="form-control" id="address-st" placeholder="Utility Bill">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Identity Card</label>
+                                    <input type="file" name="id" class="form-control" id="address-st" placeholder="Identity Card">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Passport</label>
+                                    <input type="file" name="passport" class="form-control" id="address-st" placeholder="Passport">
                                 </div>
                             </div>
 

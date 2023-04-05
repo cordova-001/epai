@@ -111,7 +111,7 @@
                                                     $select = "SELECT * FROM branch";
                                                     $query = mysqli_query($connect, $select);
                                                     while ($row = mysqli_fetch_assoc($query)) {
-                                                        $bname = $row['branch_name'];
+                                                        $bname = $row['branch'];
                                                         $bid = $row['branch_id'];
                                                         $phone = $row['phone'];
                                                         $email = $row['email'];
@@ -125,7 +125,7 @@
                                                             </div>
                                                         </div>
                                                         <div class='nk-tb-col'>
-                                                            <a href='html/lms/instructor-details.html'>
+                                                            <a href='#'>
                                                                 <div class='user-card'>
 
                                                                     <div class='user-info'>
@@ -156,13 +156,15 @@
                                                                     <div class='drodown'>
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
-
+                                                                        <form method='get'>
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                              <li><span><em class='icon ni ni-eye'></em><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></span></li>
+                                                                              <li><span><em class='icon ni ni-eye'></em><input name='branch_details' formaction='branch_details' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></span></li>
                                                                               <br>
-                                                                              <li><em class='icon ni ni-activity-round'></em><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='Edit Staff' class='icon ni ni-eye' /></li>
+                                                                              <input type='text' name='bname' value='$bname' hidden />
+                                                                              <li><em class='icon ni ni-activity-round'></em><input name='edit_branch' type='submit' formaction='edit_branch' style='border: 0px; background-color: white; float: center;' value='Edit Branch' class='icon ni ni-eye' /></li>
                                                                                 
                                                                             </ul>
+                                                                            </form>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -221,7 +223,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="form-label" for="first-name">Branch Name</label>
-                                    <input type="text" name="branch_name" class="form-control" id="first-name" placeholder="Branch name">
+                                    <input type="text" name="branch" class="form-control" id="first-name" placeholder="Branch name">
                                 </div>
                             </div>
                             <div class="col-md-12">

@@ -1,3 +1,8 @@
+<?php
+include 'php/function.php';
+include 'php/connect.inc.php';
+
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -74,19 +79,19 @@
                                                                     <p>In last 30 days</p>
                                                                 </div>
                                                                 <div class="card-tools">
-                                                                    <em class="card-hint icon ni ni-help-fill" data-bs-toggle="tooltip" data-bs-placement="left" title="Students Enrolement"></em>
+                                                                    <em class="card-hint icon ni ni-help-fill" data-bs-toggle="tooltip" data-bs-placement="left" title="Financial System"></em>
                                                                 </div>
                                                             </div>
                                                             <div class="align-end gy-3 gx-5 flex-wrap flex-md-nowrap flex-lg-wrap flex-xxl-nowrap">
                                                                 <div class="nk-sale-data-group flex-md-nowrap g-4">
-                                                                    <div class="nk-sale-data">
+                                                                    <!-- <div class="nk-sale-data">
                                                                         <span class="amount">5490 <span class="change down text-danger"><em class="icon ni ni-arrow-long-down"></em>16.93%</span></span>
                                                                         <span class="sub-title">This Month</span>
                                                                     </div>
                                                                     <div class="nk-sale-data">
                                                                         <span class="amount">1480<span class="change up text-success"><em class="icon ni ni-arrow-long-up"></em>4.26%</span></span>
                                                                         <span class="sub-title">This Week</span>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                                 <div class="nk-sales-ck sales-revenue">
                                                                     <canvas class="student-enrole" id="enrolement"></canvas>
@@ -95,8 +100,102 @@
                                                         </div>
                                                     </div>
                                                 </div><!-- .col -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="card">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Pending Loan Application</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php totalPendingLoans(); ?></div>
+                                                                        <div class="info text-end">
+                                                                            <!-- <h5> <?php pendingLoans(); ?> Customers</h5> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Pending Loan Application</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php totalPendingLoans(); ?></div>
+                                                                        <div class="info text-end">
+                                                                            <!-- <h5> <?php pendingLoans(); ?> Customers</h5> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Approved</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
+                                                                        <h5> <?php pendingLoans(); ?> Customers</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Approved</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
+                                                                        <h5> <?php pendingLoans(); ?> Customers</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
                                                         <div class="nk-ecwg nk-ecwg3">
                                                             <div class="card-inner pb-0">
                                                                 <div class="card-title-group">
@@ -106,21 +205,45 @@
                                                                 </div>
                                                                 <div class="data">
                                                                     <div class="data-group">
-                                                                        <div class="amount fw-normal">#9,495.20</div>
+                                                                        <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
                                                                         <div class="info text-end">
-                                                                            <span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last month</span>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div><!-- .card-inner -->
                                                             <div class="nk-ecwg3-ck">
-                                                                <canvas class="courseSells" id="totalSells"></canvas>
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
                                                             </div>
                                                         </div><!-- .nk-ecwg -->
                                                     </div><!-- .card -->
                                                 </div><!-- .col -->
-                                                <div class="col-md-6">
-                                                    <div class="card">
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Disbursed</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
+                                                                        <div class="info text-end">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
                                                         <div class="nk-ecwg nk-ecwg3">
                                                             <div class="card-inner pb-0">
                                                                 <div class="card-title-group">
@@ -131,16 +254,39 @@
                                                                 <div class="data">
                                                                     <div class="data-group">
                                                                         <div class="amount fw-normal">#2,995.81</div>
-                                                                        <div class="info text-end"><span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em>7.13%</span><br><span>vs. last week</span></div>
+
                                                                     </div>
                                                                 </div>
                                                             </div><!-- .card-inner -->
                                                             <div class="nk-ecwg3-ck">
-                                                                <canvas class="courseSells" id="weeklySells"></canvas>
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
                                                             </div>
                                                         </div><!-- .nk-ecwg -->
                                                     </div><!-- .card -->
                                                 </div><!-- .col -->
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Repaid</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal">#2,995.81</div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+
                                             </div><!-- .row -->
                                         </div><!-- .col -->
                                         <div class="col-md-6 col-xxl-4">
@@ -159,21 +305,24 @@
                                                             </div>
                                                             <div class='total'>
                                                                 <div class='amount'><b>Repayment Amount</b>
-                                                            </div>
+                                                                </div>
                                                         </li>
                                                     </ul>
 
                                                     <?php
                                                     include 'php/connect.inc.php';
-                                                    $select = "SELECT * FROM loan WHERE status = 'Pending' ";
+                                                    $select = "SELECT * FROM loan WHERE status = 'Disbursed' ";
                                                     $query = mysqli_query($connect, $select);
-                                                    while($row = mysqli_fetch_assoc($query)){
-                                                      $fname = $row['fname'];
-                                                      $lname = $row['lname'];
-                                                      $customer_id = $row['customer_id'];
-                                                      $repayment = $row['repayment'];
+                                                    if (mysqli_num_rows($query) == 0) {
+                                                        echo "<span style='text-align: center;'>This is no loan that has been disbursed</span>";
+                                                    } else {
+                                                        while ($row = mysqli_fetch_assoc($query)) {
+                                                            $fname = $row['fname'];
+                                                            $lname = $row['lname'];
+                                                            $customer_id = $row['customer_id'];
+                                                            $repayment = $row['repayment'];
 
-                                                    echo "<ul class='nk-top-products'>
+                                                            echo "<ul class='nk-top-products'>
                                                         <li class='item'>
 
                                                             <div class='info'>
@@ -184,8 +333,9 @@
                                                             </div>
                                                         </li>
                                                     </ul>";
-                                                  }
-                                                  ?>
+                                                        }
+                                                    }
+                                                    ?>
 
 
                                                 </div><!-- .card-inner -->
@@ -222,7 +372,7 @@
                                                             </div>
                                                             <div class='total'>
                                                                 <div class='amount'><b>Repayment Amount</b>
-                                                            </div>
+                                                                </div>
                                                         </li>
                                                     </ul>
 
@@ -230,13 +380,13 @@
                                                     include 'php/connect.inc.php';
                                                     $select = "SELECT * FROM loan WHERE status = 'Pending' ";
                                                     $query = mysqli_query($connect, $select);
-                                                    while($row = mysqli_fetch_assoc($query)){
-                                                      $fname = $row['fname'];
-                                                      $lname = $row['lname'];
-                                                      $customer_id = $row['customer_id'];
-                                                      $repayment = $row['repayment'];
+                                                    while ($row = mysqli_fetch_assoc($query)) {
+                                                        $fname = $row['fname'];
+                                                        $lname = $row['lname'];
+                                                        $customer_id = $row['customer_id'];
+                                                        $repayment = $row['repayment'];
 
-                                                    echo "<ul class='nk-top-products'>
+                                                        echo "<ul class='nk-top-products'>
                                                         <li class='item'>
 
                                                             <div class='info'>
@@ -247,8 +397,8 @@
                                                             </div>
                                                         </li>
                                                     </ul>";
-                                                  }
-                                                  ?>
+                                                    }
+                                                    ?>
                                                 </div><!-- .card-inner -->
                                             </div><!-- .card -->
                                         </div><!-- .col -->

@@ -1,6 +1,6 @@
 <div class="nk-sidebar-element nk-sidebar-head">
     <div class="nk-sidebar-brand">
-        <a href="html/index.html" class="logo-link nk-sidebar-logo">
+        <a href="index" class="logo-link nk-sidebar-logo">
             <h2>E<sup>2</sup>PAI</h2>
             <!-- <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
                             <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
@@ -17,7 +17,7 @@
         <div class="nk-sidebar-menu" data-simplebar>
             <ul class="nk-menu">
                 <li class="nk-menu-item">
-                    <a href="index.php" class="nk-menu-link">
+                    <a href="index" class="nk-menu-link">
                         <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
                         <span class="nk-menu-text">Dashboard</span>
                     </a>
@@ -38,7 +38,21 @@
                             <!-- <a href="#" class="nk-menu-link"><span class="nk-menu-text">Manage Roles</span></a> -->
                         </li>
                         <li class="nk-menu-item">
-                            <a href="manage_branch.php" class="nk-menu-link"><span class="nk-menu-text">Manage Branch</span></a>
+                            <a href="manage_branch" class="nk-menu-link"><span class="nk-menu-text">Manage Branch</span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
+                </li><!-- .nk-menu-item -->
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-book-fill"></em></span>
+                        <span class="nk-menu-text">Center Management</span>
+                    </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <!-- <a href="#" class="nk-menu-link"><span class="nk-menu-text">Manage Roles</span></a> -->
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="manage_center" class="nk-menu-link"><span class="nk-menu-text">Manage Center</span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
@@ -52,22 +66,23 @@
                             <!-- <a href="#" class="nk-menu-link"><span class="nk-menu-text">Manage Roles</span></a> -->
                         </li>
                         <li class="nk-menu-item">
-                            <a href="manage_staff.php" class="nk-menu-link"><span class="nk-menu-text">Manage Staff</span></a>
+                            <a href="manage_staff" class="nk-menu-link"><span class="nk-menu-text">Manage Staff</span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
                 <li class="nk-menu-item has-sub">
                     <a href="#" class="nk-menu-link nk-menu-toggle">
                         <span class="nk-menu-icon"><em class="icon ni ni-user-fill"></em></span>
-                        <span class="nk-menu-text">Client Management</span>
+                        <span class="nk-menu-text">Customer</span>
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="individual_client.php" class="nk-menu-link"><span class="nk-menu-text"> Manage Individual </span></a>
+                            <a href="manage_customer" class="nk-menu-link"><span class="nk-menu-text"> Manage Customer </span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="center.php" class="nk-menu-link"><span class="nk-menu-text"> Manage Centre </span></a>
+                            <a href="add_customer" class="nk-menu-link"><span class="nk-menu-text"> Add Customer </span></a>
                         </li>
+
 
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
@@ -79,13 +94,16 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="loan_product.php" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>
+                            <a href="loan_product" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="loan_request.php" class="nk-menu-link"><span class="nk-menu-text">Loan Request</span></a>
+                            <a href="loan_request" class="nk-menu-link"><span class="nk-menu-text">Loan Request</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="loan_management.php" class="nk-menu-link"><span class="nk-menu-text">Loan Management</span></a>
+                            <a href="loan_management" class="nk-menu-link"><span class="nk-menu-text">Loan Management</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="approve_loan" class="nk-menu-link"><span class="nk-menu-text">Approve Loan</span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
@@ -96,10 +114,40 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="savings.php" class="nk-menu-link"><span class="nk-menu-text">Savings</span></a>
+                            <a href="savings" class="nk-menu-link"><span class="nk-menu-text">Savings</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="withdrawal.php" class="nk-menu-link"><span class="nk-menu-text">Withdrawal </span></a>
+                            <a href="withdrawal" class="nk-menu-link"><span class="nk-menu-text">Withdrawal </span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
+                </li><!-- .nk-menu-item -->
+
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
+                        <span class="nk-menu-text">Payroll </span>
+                    </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="add_payroll" class="nk-menu-link"><span class="nk-menu-text">Add Payroll</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="manage_payroll" class="nk-menu-link"><span class="nk-menu-text">Manage Payroll </span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
+                </li><!-- .nk-menu-item -->
+
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
+                        <span class="nk-menu-text">Repayment </span>
+                    </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="singleRepayment" class="nk-menu-link"><span class="nk-menu-text">Single Repayment</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="bulkRepayment" class="nk-menu-link"><span class="nk-menu-text">Bulk Repayment </span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
@@ -111,28 +159,28 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="disbursement_report.php" class="nk-menu-link"><span class="nk-menu-text">Disbursement</span></a>
+                            <a href="disbursement_report" class="nk-menu-link"><span class="nk-menu-text">Disbursement</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="expected_loan_report.php" class="nk-menu-link"><span class="nk-menu-text">Expected Loan</span></a>
+                            <a href="expected_loan_report" class="nk-menu-link"><span class="nk-menu-text">Expected Loan</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="savings_report.php" class="nk-menu-link"><span class="nk-menu-text">Savings</span></a>
+                            <a href="savings_report" class="nk-menu-link"><span class="nk-menu-text">Savings</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="withdrawal_report.php" class="nk-menu-link"><span class="nk-menu-text">Withdrawal</span></a>
+                            <a href="withdrawal_report" class="nk-menu-link"><span class="nk-menu-text">Withdrawal</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="" class="nk-menu-link"><span class="nk-menu-text">Fees</span></a>
+                            <a href="fees_report" class="nk-menu-link"><span class="nk-menu-text">Fees</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="loan_product_report.php" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>
+                            <a href="loan_product_report" class="nk-menu-link"><span class="nk-menu-text">Loan Products</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="portfolio_at_risk_report.php" class="nk-menu-link"><span class="nk-menu-text">Portfolio at Risk</span></a>
+                            <a href="portfolio_at_risk_report" class="nk-menu-link"><span class="nk-menu-text">Portfolio at Risk</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="provisioning_report.php" class="nk-menu-link"><span class="nk-menu-text">Provisioning</span></a>
+                            <a href="provisioning_report" class="nk-menu-link"><span class="nk-menu-text">Provisioning</span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
@@ -144,19 +192,25 @@
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-list.html" class="nk-menu-link"><span class="nk-menu-text">NAIC Account</span></a>
+                            <a href="chart_of_account" class="nk-menu-link"><span class="nk-menu-text">Chart of Account</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Closure Account</span></a>
+                            <a href="income_and_expenditure" class="nk-menu-link"><span class="nk-menu-text">Inome and Expenditure</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Processing Account</span></a>
+                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">NAIC Account</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Cards Account</span></a>
+                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Closure Account</span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="html/lms/student-invoice-details.html" class="nk-menu-link"><span class="nk-menu-text">Miscellaneous Account</span></a>
+                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Processing Account</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Cards Account</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Miscellaneous Account</span></a>
                         </li>
 
                     </ul><!-- .nk-menu-sub -->

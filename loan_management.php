@@ -97,6 +97,7 @@
                                                         $rate = $row['rate'];
                                                         $date = $row['application_date'];
                                                         $status = $row['status'];
+                                                        $id = $row['id'];
 
                                                         echo "
                                                         <tr>
@@ -111,17 +112,20 @@
                                                             <td>
                                                             <div class='nk-tb-col nk-tb-col-tools'>
                                                             <ul class='nk-tb-actions gx-1'>
+                                                            <form method = 'get'>
                                                                 <li>
                                                                     <div class='drodown'>
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                                <li><em class='icon ni ni-eye'></em><span>View Details</span></a></li>
-                                                                                <li><a href=''><em class='icon ni ni-activity-round'></em><span>Activities</span></a></li>
+                                                                            <li><span><em class='icon ni ni-eye'></em><input name='click' formaction='loan_details.php' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></span></li>
+                                                                                <input type = 'text' name = 'id' value='$id' hidden/>
+                                                                                
                                                                             </ul>
                                                                         </div>
                                                                     </div>
                                                                 </li>
+                                                            </form>
                                                             </ul>
                                                         </div>
                                                             </td>

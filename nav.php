@@ -45,6 +45,20 @@
                 <li class="nk-menu-item has-sub">
                     <a href="#" class="nk-menu-link nk-menu-toggle">
                         <span class="nk-menu-icon"><em class="icon ni ni-book-fill"></em></span>
+                        <span class="nk-menu-text">Center Management</span>
+                    </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <!-- <a href="#" class="nk-menu-link"><span class="nk-menu-text">Manage Roles</span></a> -->
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="manage_center" class="nk-menu-link"><span class="nk-menu-text">Manage Center</span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
+                </li><!-- .nk-menu-item -->
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-book-fill"></em></span>
                         <span class="nk-menu-text">Staff Management</span>
                     </a>
                     <ul class="nk-menu-sub">
@@ -59,15 +73,16 @@
                 <li class="nk-menu-item has-sub">
                     <a href="#" class="nk-menu-link nk-menu-toggle">
                         <span class="nk-menu-icon"><em class="icon ni ni-user-fill"></em></span>
-                        <span class="nk-menu-text">Client Management</span>
+                        <span class="nk-menu-text">Customer</span>
                     </a>
                     <ul class="nk-menu-sub">
                         <li class="nk-menu-item">
-                            <a href="individual_client" class="nk-menu-link"><span class="nk-menu-text"> Manage Individual </span></a>
+                            <a href="manage_customer" class="nk-menu-link"><span class="nk-menu-text"> Manage Customer </span></a>
                         </li>
                         <li class="nk-menu-item">
-                            <a href="center" class="nk-menu-link"><span class="nk-menu-text"> Manage Centre </span></a>
+                            <a href="add_customer" class="nk-menu-link"><span class="nk-menu-text"> Add Customer </span></a>
                         </li>
+
 
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
@@ -87,6 +102,9 @@
                         <li class="nk-menu-item">
                             <a href="loan_management" class="nk-menu-link"><span class="nk-menu-text">Loan Management</span></a>
                         </li>
+                        <li class="nk-menu-item">
+                            <a href="approve_loan" class="nk-menu-link"><span class="nk-menu-text">Approve Loan</span></a>
+                        </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
                 <li class="nk-menu-item has-sub">
@@ -100,6 +118,36 @@
                         </li>
                         <li class="nk-menu-item">
                             <a href="withdrawal" class="nk-menu-link"><span class="nk-menu-text">Withdrawal </span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
+                </li><!-- .nk-menu-item -->
+
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
+                        <span class="nk-menu-text">Payroll </span>
+                    </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="add_payroll" class="nk-menu-link"><span class="nk-menu-text">Add Payroll</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="manage_payroll" class="nk-menu-link"><span class="nk-menu-text">Manage Payroll </span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
+                </li><!-- .nk-menu-item -->
+
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
+                        <span class="nk-menu-text">Repayment </span>
+                    </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="singleRepayment" class="nk-menu-link"><span class="nk-menu-text">Single Repayment</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="bulkRepayment" class="nk-menu-link"><span class="nk-menu-text">Bulk Repayment </span></a>
                         </li>
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->

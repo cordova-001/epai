@@ -51,49 +51,29 @@
                                     <div class="card">
                                         <div class="card-inner">
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="tabItem5">
+                                                <div class="tab-pane active" id="tabItem10">
                                                     <!-- <h4 class="title nk-block-title">Edit Staff</h4> -->
                                                     <!-- <p>Processing of loan application.</p> -->
-                                                    <ul class="nk-block-tools g-3">
-                                                        <li>
-                                                            <div class="form-control-wrap">
-                                                                <div class="form-icon form-icon-right">
-
-                                                                </div>
-                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                    <div class="row gy-4">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="first-name">Start Date</label>
+                                                                <input type="date" name="start_date" class="form-control" placeholder="Start Date">
                                                             </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-control-wrap">
-                                                                <div class="form-icon form-icon-right">
-
-                                                                </div>
-                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="first-name">End Date</label>
+                                                                <input type="date" name="end_date" class="form-control" placeholder="End Date">
                                                             </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-control-wrap">
-                                                                <div class="form-icon form-icon-right">
-
-                                                                </div>
-                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-control-wrap">
-                                                                <div class="form-icon form-icon-right">
-
-                                                                </div>
-                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
-                                                            </div>
-                                                        </li>
-                                                        <li>
-
-                                                        </li>
-                                                        <div class="form-group mt-2">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label class="form-label" for="first-name"></label><br>
                                                             <button type="submit" name="request_loan" class="btn btn-lg btn-primary">Create Report</button>
                                                         </div>
-                                                    </ul>
+                                                    </div>
+
+
                                                 </div>
                                                 <!--tab pan -->
 

@@ -2,8 +2,78 @@
 if (isset($_GET['client_details'])) {
     $customer_id = $_GET['customer_id'];
     include 'php/connect.inc.php';
+    //customer detail pull
+    $select_cus = "SELECT * FROM customer WHERE customer_id = '$customer_id' ";
+    $query = mysqli_query($connect, $select_cus);
+    while ($row = mysqli_fetch_assoc($query)) {
+        $fname = $row['first_name'];
+        $lname = $row['last_name'];
+        $gender = $row['gender'];
+        $phone = $row['phone'];
+        $email = $row['email'];
+        $address = $row['address'];
+        $soo = $row['state_of_origin'];
+        $lga = $row['lga'];
+        $customer_id = $row['customer_id'];
+        $status = $row['status'];
+        $branch = $row['branch'];
+    }
 } else {
     header("Location: individual_client");
+}
+
+//loan pull
+if (isset($_GET['client_details'])) {
+    $customer_id = $_GET['customer_id'];
+    include 'php/connect.inc.php';
+    $select_cus = "SELECT * FROM loan WHERE customer_id = '$customer_id' ";
+    $query = mysqli_query($connect, $select_cus);
+    while ($row = mysqli_fetch_assoc($query)) {
+        $fname = $row['fname'];
+        $lname = $row['lname'];
+        $phone = $row['phone'];
+        $email = $row['email'];
+        $lamount = $row['lamount'];
+        $rate = $row['rate'];
+        $repayment = $row['repayment'];
+        $customer_id = $row['customer_id'];
+        $status = $row['status'];
+        $branch = $row['branch'];
+    }
+} else {
+    header("Location: individual_client");
+}
+
+function totalPendingLoans()
+{
+    if (isset($_GET['client_details'])) {
+        $customer_id = $_GET['customer_id'];
+        include 'php/connect.inc.php';
+        // include 'org_sessions.php';
+        $select = "SELECT * FROM loan WHERE status = 'Pending' && customer_id = '$customer_id' ";
+        $query = mysqli_query($connect, $select);
+        $totalLoan = 0;
+        while ($row = mysqli_fetch_assoc($query)) {
+            $totalLoan += $row['lamount'];
+        }
+        echo '<del>N</del>' . number_format($totalLoan);
+    }
+}
+
+function totalRepaidLoans()
+{
+    if (isset($_GET['client_details'])) {
+        $customer_id = $_GET['customer_id'];
+        include 'php/connect.inc.php';
+        // include 'org_sessions.php';
+        $select = "SELECT * FROM loan WHERE status = 'Repaid' && customer_id = '$customer_id' ";
+        $query = mysqli_query($connect, $select);
+        $totalLoan = 0;
+        while ($row = mysqli_fetch_assoc($query)) {
+            $totalLoan += $row['lamount'];
+        }
+        echo '<del>N</del>' . number_format($totalLoan);
+    }
 }
 
 ?>
@@ -49,7 +119,7 @@ if (isset($_GET['client_details'])) {
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between">
                                         <div class="nk-block-head-content">
-                                            <h4 class="nk-block-title page-title"> Ahmad Akorede - 001 </h4>
+                                            <h4 class="nk-block-title page-title"> Ahmad Akorede - <?php echo $customer_id; ?> </h4>
                                         </div><!-- .nk-block-head-content -->
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
@@ -61,20 +131,18 @@ if (isset($_GET['client_details'])) {
                                                     <div class="card-inner">
                                                         <div class="card-title-group">
                                                             <div class="card-title">
-                                                                <h6 class="title">Total Loan Collect</h6>
+                                                                <h6 class="title">Total Loan Collected</h6>
                                                             </div>
-                                                            <div class="card-tools">
-                                                                <a href="#" class="link">View Report</a>
-                                                            </div>
+
                                                         </div>
                                                         <div class="data">
-                                                            <div class="amount">$74,958.49</div>
+                                                            <div class="amount"><?php totalPendingLoans(); ?></div>
 
                                                         </div>
                                                         <div class="data">
                                                             <h6 class="sub-title">Total Loan Repaid</h6>
                                                             <div class="data-group">
-                                                                <div class="amount">$1,338.72</div>
+                                                                <div class="amount"><?php totalRepaidLoans(); ?></div>
 
                                                             </div>
                                                         </div>
@@ -91,24 +159,25 @@ if (isset($_GET['client_details'])) {
                                                     <div class="card-inner">
                                                         <div class="card-title-group mt-n1">
                                                             <div class="card-title">
-                                                                <h6 class="title">Averarge order</h6>
+
                                                             </div>
 
                                                         </div>
                                                         <div class="data">
                                                             <div class="data-group">
-                                                                <div class="amount">$463.35</div>
-                                                                <div class="info text-end"><span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last week</span></div>
+
+                                                                <div class="info text-end"><span class="change up text-danger"><em class="icon ni ni-arrow-long-up"></em></div>
                                                             </div>
                                                         </div>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
-                                                        <h6 class="sub-title">Orders over time</h6>
+
+                                                        <h6 class="sub-title">First Name: <?php echo $fname; ?></h6>
+                                                        <h6 class="sub-title">Last Name: <?php echo $lname; ?></h6>
+                                                        <h6 class="sub-title">Gender: <?php echo $gender; ?></h6>
+                                                        <h6 class="sub-title">Phone Number: <?php echo $phone; ?></h6>
+                                                        <h6 class="sub-title">Address: <?php echo $address; ?></h6>
+                                                        <h6 class="sub-title">Customer ID: <?php echo $customer_id; ?></h6>
+                                                        <h6 class="sub-title">Account Status: <?php echo $status; ?></h6>
+                                                        <h6 class="sub-title">Branch: <?php echo $branch; ?></h6>
                                                     </div><!-- .card-inner -->
                                                     <!-- <div class="nk-ecwg2-ck">
                                                         <canvas class="ecommerce-bar-chart-s1" id="averargeOrder"></canvas>
@@ -164,74 +233,77 @@ if (isset($_GET['client_details'])) {
                                                 </div><!-- .col -->
                                             </div><!-- .row -->
                                         </div><!-- .col -->
-                                        <div class="col-xxl-8">
-                                            <div class="card card-full">
+
+
+                                        <div class="nk-block nk-block-lg">
+                                            <div class="card card-bordered card-preview">
                                                 <div class="card-inner">
                                                     <div class="card-title-group">
                                                         <div class="card-title">
-                                                            <h6 class="title">Latest Loan Accounts</h6>
+                                                            <h6 class="title">Loan Transactions</h6>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="nk-tb-list mt-n2">
-                                                    <div class="nk-tb-item nk-tb-head">
-                                                        <div class="nk-tb-col"><span>Transaction ID</span></div>
-                                                        <div class="nk-tb-col tb-col-sm"><span>Customer</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span>Date</span></div>
-                                                        <div class="nk-tb-col"><span>Amount</span></div>
-                                                        <div class="nk-tb-col"><span class="d-none d-sm-inline">Status</span></div>
-                                                    </div>
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-lead"><a href="#">#95954</a></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <div class="user-card">
+                                                <div class="card-inner">
+                                                    <table class="datatable-init-export nowrap table" data-export-title="Export">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Customer ID</th>
+                                                                <th>Name </th>
+                                                                <th>Loan Amount</th>
+                                                                <th>Rate</th>
+                                                                <th>Repayment Amount</th>
 
-                                                                <div class="user-name">
-                                                                    <span class="tb-lead">Abu Bin Ishtiyak</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-sub">02/11/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-sub tb-amount">4,596.75 <span>USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="badge badge-dot badge-dot-xs bg-success">Paid</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-lead"><a href="#">#95850</a></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <div class="user-card">
+                                                                <th>Application date</th>
+                                                                <th>Status</th>
+                                                                <th>Action</th>
 
-                                                                <div class="user-name">
-                                                                    <span class="tb-lead">Desiree Edwards</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-sub">02/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-sub tb-amount">596.75 <span>USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="badge badge-dot badge-dot-xs bg-danger">Canceled</span>
-                                                        </div>
-                                                    </div>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            if (isset($_GET['branch_details'])) {
+                                                                $bname = $_GET['bname'];
 
+                                                                include 'php/connect.inc.php';
+                                                                $select = "SELECT * FROM loan WHERE branch = '$bname' ";
+                                                                $query = mysqli_query($connect, $select);
+                                                                while ($row = mysqli_fetch_assoc($query)) {
+                                                                    $customer_id = $row['customer_id'];
+                                                                    $fname = $row['fname'];
+                                                                    $lname = $row['lname'];
+                                                                    $lamount = $row['lamount'];
+                                                                    $repayment = $row['repayment'];
+                                                                    $rate = $row['rate'];
+                                                                    $date = $row['application_date'];
+                                                                    $status = $row['status'];
+
+                                                                    echo "
+                                                        <tr>
+                                                            <td>$customer_id</td>
+                                                            <td>$fname  $lname</td>
+                                                            <td>$lamount</td>
+                                                            <td>$rate</td>
+                                                            <td>$repayment</td>
+
+                                                            <td>$date</td>
+                                                            <td>$status</td>
+                                                            <td>View</td>
+                                                            
+                                                        </tr>
+                                                    ";
+                                                                }
+                                                            }
+
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                            </div><!-- .card -->
-                                        </div>
+                                            </div><!-- .card-preview -->
+                                        </div> <!-- nk-block -->
 
-                                        <div class="col-xxl-8">
-                                            <div class="card card-full">
+                                        <div class="nk-block nk-block-lg">
+                                            <div class="card card-bordered card-preview">
                                                 <div class="card-inner">
                                                     <div class="card-title-group">
                                                         <div class="card-title">
@@ -239,65 +311,62 @@ if (isset($_GET['client_details'])) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="nk-tb-list mt-n2">
-                                                    <div class="nk-tb-item nk-tb-head">
-                                                        <div class="nk-tb-col"><span>Transaction ID</span></div>
-                                                        <div class="nk-tb-col tb-col-sm"><span>Customer</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span>Date</span></div>
-                                                        <div class="nk-tb-col"><span>Amount</span></div>
-                                                        <div class="nk-tb-col"><span class="d-none d-sm-inline">Status</span></div>
-                                                    </div>
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-lead"><a href="#">#95954</a></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <div class="user-card">
+                                                <div class="card-inner">
+                                                    <table class="datatable-init-export nowrap table" data-export-title="Export">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Customer ID</th>
+                                                                <th>Name </th>
+                                                                <th>Loan Amount</th>
+                                                                <th>Rate</th>
+                                                                <th>Repayment Amount</th>
 
-                                                                <div class="user-name">
-                                                                    <span class="tb-lead">Abu Bin Ishtiyak</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-sub">02/11/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-sub tb-amount">4,596.75 <span>USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="badge badge-dot badge-dot-xs bg-success">Paid</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-lead"><a href="#">#95850</a></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <div class="user-card">
+                                                                <th>Application date</th>
+                                                                <th>Status</th>
+                                                                <th>Action</th>
 
-                                                                <div class="user-name">
-                                                                    <span class="tb-lead">Desiree Edwards</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-sub">02/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-sub tb-amount">596.75 <span>USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="badge badge-dot badge-dot-xs bg-danger">Canceled</span>
-                                                        </div>
-                                                    </div>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            include 'php/connect.inc.php';
+                                                            $select = "SELECT * FROM loan";
+                                                            $query = mysqli_query($connect, $select);
+                                                            while ($row = mysqli_fetch_assoc($query)) {
+                                                                $customer_id = $row['customer_id'];
+                                                                $fname = $row['fname'];
+                                                                $lname = $row['lname'];
+                                                                $lamount = $row['lamount'];
+                                                                $repayment = $row['repayment'];
+                                                                $rate = $row['rate'];
+                                                                $date = $row['application_date'];
+                                                                $status = $row['status'];
 
+                                                                echo "
+                                                                <tr>
+                                                                    <td>$customer_id</td>
+                                                                    <td>$fname  $lname</td>
+                                                                    <td>$lamount</td>
+                                                                    <td>$rate</td>
+                                                                    <td>$repayment</td>
+
+                                                                    <td>$date</td>
+                                                                    <td>$status</td>
+                                                                     <td>View</td>
+
+                                                                </tr>
+                                                            ";
+                                                            }
+
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                            </div><!-- .card -->
+                                            </div>
                                         </div>
 
-                                        <div class="col-xxl-8">
-                                            <div class="card card-full">
+                                        <div class="nk-block nk-block-lg">
+                                            <div class="card card-bordered card-preview">
                                                 <div class="card-inner">
                                                     <div class="card-title-group">
                                                         <div class="card-title">
@@ -305,61 +374,58 @@ if (isset($_GET['client_details'])) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="nk-tb-list mt-n2">
-                                                    <div class="nk-tb-item nk-tb-head">
-                                                        <div class="nk-tb-col"><span>Transaction ID</span></div>
-                                                        <div class="nk-tb-col tb-col-sm"><span>Customer</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span>Date</span></div>
-                                                        <div class="nk-tb-col"><span>Amount</span></div>
-                                                        <div class="nk-tb-col"><span class="d-none d-sm-inline">Status</span></div>
-                                                    </div>
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-lead"><a href="#">#95954</a></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <div class="user-card">
+                                                <div class="card-inner">
+                                                    <table class="datatable-init-export nowrap table" data-export-title="Export">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Customer ID</th>
+                                                                <th>Name </th>
+                                                                <th>Loan Amount</th>
+                                                                <th>Rate</th>
+                                                                <th>Repayment Amount</th>
 
-                                                                <div class="user-name">
-                                                                    <span class="tb-lead">Abu Bin Ishtiyak</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-sub">02/11/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-sub tb-amount">4,596.75 <span>USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="badge badge-dot badge-dot-xs bg-success">Paid</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-lead"><a href="#">#95850</a></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <div class="user-card">
+                                                                <th>Application date</th>
+                                                                <th>Status</th>
+                                                                <th>Action</th>
 
-                                                                <div class="user-name">
-                                                                    <span class="tb-lead">Desiree Edwards</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-sub">02/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-sub tb-amount">596.75 <span>USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="badge badge-dot badge-dot-xs bg-danger">Canceled</span>
-                                                        </div>
-                                                    </div>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            include 'php/connect.inc.php';
+                                                            $select = "SELECT * FROM loan";
+                                                            $query = mysqli_query($connect, $select);
+                                                            while ($row = mysqli_fetch_assoc($query)) {
+                                                                $customer_id = $row['customer_id'];
+                                                                $fname = $row['fname'];
+                                                                $lname = $row['lname'];
+                                                                $lamount = $row['lamount'];
+                                                                $repayment = $row['repayment'];
+                                                                $rate = $row['rate'];
+                                                                $date = $row['application_date'];
+                                                                $status = $row['status'];
 
+                                                                echo "
+                                                                <tr>
+                                                                    <td>$customer_id</td>
+                                                                    <td>$fname  $lname</td>
+                                                                    <td>$lamount</td>
+                                                                    <td>$rate</td>
+                                                                    <td>$repayment</td>
+
+                                                                    <td>$date</td>
+                                                                    <td>$status</td>
+                                                                     <td>View</td>
+
+                                                                </tr>
+                                                            ";
+                                                            }
+
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                            </div><!-- .card -->
+                                            </div>
                                         </div>
 
 
@@ -399,6 +465,7 @@ if (isset($_GET['client_details'])) {
     <script src="./assets/js/bundle.js?ver=3.0.3"></script>
     <script src="./assets/js/scripts.js?ver=3.0.3"></script>
     <script src="./assets/js/charts/chart-ecommerce.js?ver=3.0.3"></script>
+    <script src="./assets/js/libs/datatable-btns.js?ver=3.0.3"></script>
 </body>
 
 </html>

@@ -39,6 +39,54 @@ function customerRegistration()
   }
 }
 
+
+// function upload()
+// {
+//   $target_dir = "images/";
+//   $target_file1 = $target_dir . basename($_FILES["utility"]["name"]);
+//   $target_file2 = $target_dir . basename($_FILES["id_card"]["name"]);
+//   $target_file3 = $target_dir . basename($_FILES["passport"]["name"]);
+
+//   $uploadOk = 1;
+//   $imageFileType1 = strtolower(pathinfo($target_file1, PATHINFO_EXTENSION));
+//   $imageFileType2 = strtolower(pathinfo($target_file2, PATHINFO_EXTENSION));
+//   $imageFileType3 = strtolower(pathinfo($target_file3, PATHINFO_EXTENSION));
+
+//   // Check if image file is a actual image or fake image
+//   if (isset($_POST["submit"])) {
+//     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+//   }
+
+//   // Check file size
+//   if ($_FILES["fileToUpload"]["size"] > 500000) {
+//     echo "Sorry, your file is too large.";
+//     $uploadOk = 0;
+//   }
+
+//   // Allow certain file formats
+//   if (
+//     $imageFileType1 != "jpg" && $imageFileType1 != "png" && $imageFileType1 != "jpeg"
+//     && $imageFileType1 != "gif"
+//   ) {
+//     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+//     $uploadOk = 0;
+//   }
+
+//   // Check if $uploadOk is set to 0 by an error
+//   if ($uploadOk == 0) {
+//     echo "Sorry, your file was not uploaded.";
+//     // if everything is ok, try to upload file
+//   } else {
+//     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+//       echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+//     } else {
+//       echo "Sorry, there was an error uploading your file.";
+//     }
+//   }
+// }
+
+
+
 function loanProduct()
 {
   if (isset($_POST['create_loan_product'])) {
@@ -162,6 +210,36 @@ function createBranch()
       ('$branch', '$branch_id', '$phone', '$email', '$address')";
       if (mysqli_query($connect, $insert)) {
         echo "<script>alert('The branch has been created successfully')</script>";
+      }
+    }
+  }
+}
+
+function createCenter()
+{
+  if (isset($_POST['createCenter'])) {
+    $branch = htmlentities(addslashes($_POST['branch']));
+    $center = htmlentities(addslashes($_POST['center']));
+    $branch = htmlentities(addslashes($_POST['branch']));
+    $address = htmlentities(addslashes($_POST['address']));
+    $phone = htmlentities(addslashes($_POST['phone']));
+    $email = htmlentities(addslashes($_POST['email']));
+    $center_id = htmlentities($_POST['center_id']);
+    include 'connect.inc.php';
+    $check = "SELECT * FROM center WHERE center_name = '$center' || center_id = '$center_id'";
+    $query = mysqli_query($connect, $check);
+    include 'connect.inc.php';
+    if (mysqli_num_rows($query) > 0) {
+      echo "<script>alert('This center name or center ID already exist')</script>";
+    } else {
+      $insert = "INSERT INTO center
+      (branch, center_name, center_id,  phone, email, address)
+      VALUES
+      ('$branch', '$center', '$center_id',  '$phone', '$email', '$address')";
+      if (mysqli_query($connect, $insert)) {
+        echo "<script>alert('The center has been created successfully')</script>";
+      } else {
+        echo mysqli_error($connect);
       }
     }
   }

@@ -100,7 +100,7 @@ include 'php/connect.inc.php';
                                                         </div>
                                                     </div>
                                                 </div><!-- .col -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="card">
                                                         <div class="nk-ecwg nk-ecwg3">
                                                             <div class="card-inner pb-0">
@@ -113,18 +113,42 @@ include 'php/connect.inc.php';
                                                                     <div class="data-group">
                                                                         <div class="amount fw-normal"><?php totalPendingLoans(); ?></div>
                                                                         <div class="info text-end">
-                                                                            <h5> <?php pendingLoans(); ?> Customers</h5>
+                                                                            <!-- <h5> <?php pendingLoans(); ?> Customers</h5> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div><!-- .card-inner -->
                                                             <div class="nk-ecwg3-ck">
-                                                                <canvas class="courseSells" id="totalSells"></canvas>
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
                                                             </div>
                                                         </div><!-- .nk-ecwg -->
                                                     </div><!-- .card -->
                                                 </div><!-- .col -->
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Pending Loan Application</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php totalPendingLoans(); ?></div>
+                                                                        <div class="info text-end">
+                                                                            <!-- <h5> <?php pendingLoans(); ?> Customers</h5> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-3">
                                                     <div class="card">
                                                         <div class="nk-ecwg nk-ecwg3">
                                                             <div class="card-inner pb-0">
@@ -141,14 +165,37 @@ include 'php/connect.inc.php';
                                                                 </div>
                                                             </div><!-- .card-inner -->
                                                             <div class="nk-ecwg3-ck">
-                                                                <canvas class="courseSells" id="weeklySells"></canvas>
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
                                                             </div>
                                                         </div><!-- .nk-ecwg -->
                                                     </div><!-- .card -->
                                                 </div><!-- .col -->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-3">
                                                     <div class="card">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Approved</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
+                                                                        <h5> <?php pendingLoans(); ?> Customers</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
                                                         <div class="nk-ecwg nk-ecwg3">
                                                             <div class="card-inner pb-0">
                                                                 <div class="card-title-group">
@@ -160,19 +207,43 @@ include 'php/connect.inc.php';
                                                                     <div class="data-group">
                                                                         <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
                                                                         <div class="info text-end">
-                                                                            <h5> <?php pendingLoans(); ?> Customers</h5>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div><!-- .card-inner -->
                                                             <div class="nk-ecwg3-ck">
-                                                                <canvas class="courseSells" id="totalSells"></canvas>
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
                                                             </div>
                                                         </div><!-- .nk-ecwg -->
                                                     </div><!-- .card -->
                                                 </div><!-- .col -->
-                                                <div class="col-md-6">
-                                                    <div class="card">
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Disbursed</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal"><?php disbursedLoans(); ?></div>
+                                                                        <div class="info text-end">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="totalSells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
                                                         <div class="nk-ecwg nk-ecwg3">
                                                             <div class="card-inner pb-0">
                                                                 <div class="card-title-group">
@@ -183,12 +254,34 @@ include 'php/connect.inc.php';
                                                                 <div class="data">
                                                                     <div class="data-group">
                                                                         <div class="amount fw-normal">#2,995.81</div>
-                                                                        <h5> <?php pendingLoans(); ?> Customers</h5>
+
                                                                     </div>
                                                                 </div>
                                                             </div><!-- .card-inner -->
                                                             <div class="nk-ecwg3-ck">
-                                                                <canvas class="courseSells" id="weeklySells"></canvas>
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
+                                                            </div>
+                                                        </div><!-- .nk-ecwg -->
+                                                    </div><!-- .card -->
+                                                </div><!-- .col -->
+                                                <div class="col-md-3">
+                                                    <div class="card" style="background-color: skyblue;">
+                                                        <div class="nk-ecwg nk-ecwg3">
+                                                            <div class="card-inner pb-0">
+                                                                <div class="card-title-group">
+                                                                    <div class="card-title">
+                                                                        <h6 class="title">Total Loan Repaid</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="data">
+                                                                    <div class="data-group">
+                                                                        <div class="amount fw-normal">#2,995.81</div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- .card-inner -->
+                                                            <div class="nk-ecwg3-ck">
+                                                                <!-- <canvas class="courseSells" id="weeklySells"></canvas> -->
                                                             </div>
                                                         </div><!-- .nk-ecwg -->
                                                     </div><!-- .card -->

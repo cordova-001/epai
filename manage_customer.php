@@ -60,7 +60,7 @@
 
                                                         <li class="nk-block-tools-opt">
                                                             <a href="#" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
-                                                            <a class="btn btn-primary d-none d-md-inline-flex" data-bs-toggle="modal" href="#instructor-add"><em class="icon ni ni-plus"></em><span>Add</span></a>
+                                                            <a class="btn btn-primary d-none d-md-inline-flex" href="add_customer"><em class="icon ni ni-plus"></em><span>Add</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -337,13 +337,54 @@
                                         $query = mysqli_query($connect, $select);
                                         while ($row = mysqli_fetch_assoc($query)) {
                                             $bid = $row['branch_id'];
-                                            $bname = $row['branch_name'];
+                                            $bname = $row['branch'];
 
                                             echo "<option>$bname</option>";
                                         }
                                         ?>
 
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Center</label>
+                                    <select class='form-select js-select2' id='branch' name='center'>
+                                        <?php
+                                        include 'php/connect.inc.php';
+                                        $select = "SELECT * FROM center";
+                                        $query = mysqli_query($connect, $select);
+                                        while ($row = mysqli_fetch_assoc($query)) {
+                                            $cid = $row['center_id'];
+                                            $cname = $row['center_name'];
+
+                                            echo "<option>$cname</option>";
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Utility Bill</label>
+                                    <input type="file" name="utility" class="form-control" id="address-st" placeholder="Utility Bill">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Identity Card</label>
+                                    <input type="file" name="id" class="form-control" id="address-st" placeholder="Identity Card">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Passport</label>
+                                    <input type="file" name="passport" class="form-control" id="address-st" placeholder="Passport">
                                 </div>
                             </div>
 

@@ -46,47 +46,104 @@
                   </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
                 <div class="nk-block nk-block-lg">
+                  <div class="card-title-group align-start mb-2" style="border: 1px solid; background-color: white;">
+                    <div class="card-title">
+                      <div class="card-inner">
+                        <div class="row gy-12">
+
+                          <div class="col-md-12" style="float:left; border: 1px solid;">
+                            <div class="form-group">
+                              <label class="form-label" for="first-name">Employee Name</label>
+                              <input type="text" name="employee_name" class="form-control" id="first-name" placeholder="Employee name">
+                            </div>
+
+                          </div>
+                          <span><br></span>
+                          <div class="col-md-4" style="float: left;">
+                            <div class="form-group">
+                              <label class="form-label" for="last-name">Employee Number</label>
+                              <input type="text" name="employee_no" class="form-control" id="last-name" placeholder="Employee Number">
+                            </div>
+                          </div>
+                          <span><br></span>
+                          <div class="col-md-4" style="float: left;">
+                            <div class="form-group">
+                              <label class="form-label" for="email">Payroll Date</label>
+                              <input type="date" name="payroll_date" class="form-control" id="email" placeholder="Payroll Date">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-tools">
+                      <em class="card-hint icon ni ni-help-fill" data-bs-toggle="tooltip" data-bs-placement="left" title="Financial System"></em>
+                    </div>
+                  </div>
                   <div class="card" style="width: 50%; float: left;">
                     <div class="card-inner">
                       <div class="tab-content">
+
                         <div class="tab-pane active" id="tabItem5">
                           <h5 class="title">Add A Payroll </h5>
                           <?php customerRegistration(); ?>
                           <form action="#" class="pt-2" method="POST">
-                            <div class="row gy-4">
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label class="form-label" for="first-name">First Name</label>
-                                  <input type="text" name="first_name" class="form-control" id="first-name" placeholder="First name">
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label class="form-label" for="last-name">Last Name</label>
-                                  <input type="text" name="last_name" class="form-control" id="last-name" placeholder="Last name">
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label class="form-label" for="email">Email Address</label>
-                                  <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
-                                </div>
-                              </div>
+                            <div class="row gy-12">
 
-                              <div class="col-md-6">
+                              <span><br></span>
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="form-label" for="address-st">Status</label>
-                                  <select class="form-select js-select2" name="status">
-                                    <option>Active</option>
-                                    <option>Suspended</option>
-                                  </select>
+                                  <label class="form-label" for="email">Basic Salary</label>
+                                  <input type="text" name="basic_salary" class="form-control" id="email" placeholder="Basic Salary">
                                 </div>
                               </div>
-
-                              <div class="col-md-6">
+                              <span><br></span>
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="form-label" for="address-st">Customer ID</label>
-                                  <input type="text" name="customer_id" class="form-control" id="address-st" placeholder="Customer Id">
+                                  <label class="form-label" for="address-st">Over time </label>
+                                  <input type="text" name="overtime" class="form-control" id="address-st" placeholder="Overtime">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Paid Leaves </label>
+                                  <input type="text" name="paid_leaves" class="form-control" id="address-st" placeholder="Paid Leaves">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Transport Allowance </label>
+                                  <input type="text" name="transport_allowance" class="form-control" id="address-st" placeholder="Transport Allowance">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Medical Allowance </label>
+                                  <input type="text" name="medical" class="form-control" id="address-st" placeholder="Medical Allowance">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Bonuses </label>
+                                  <input type="text" name="bonuses" class="form-control" id="address-st" placeholder="Bonuses">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Other Allowance </label>
+                                  <input type="text" name="other_allowance" class="form-control" id="address-st" placeholder="Other Allowance">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <hr>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Total Pay </label>
+                                  <input type="text" name="total_pay" class="form-control" id="address-st" placeholder="Total Pay">
                                 </div>
                               </div>
 
@@ -111,60 +168,59 @@
 
 
                   <div class="card" style="width: 45%; float: left; margin:5px;">
-                    <div class="card-inner">
-                      <div class="tab-content">
+                    <div class="card-inner" style="background-color: gray;">
+                      <div class="tab-content" style="background-color: grey;">
                         <div class="tab-pane active" id="tabItem5">
-                          <h5 class="title">Add A Payroll </h5>
-                          <?php customerRegistration(); ?>
+                          <h5 class="title">Deductions </h5>
+
                           <form action="#" class="pt-2" method="POST">
-                            <div class="row gy-4">
+                            <div class="row gy-12">
                               <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="form-label" for="first-name">First Name</label>
-                                  <input type="text" name="first_name" class="form-control" id="first-name" placeholder="First name">
+                                  <label class="form-label" for="first-name">Pensions</label>
+                                  <input type="text" name="employee_name" class="form-control" id="first-name" placeholder="Employee name">
                                 </div>
                               </div>
-                              <div class="col-md-4">
+                              <span><br></span>
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="form-label" for="last-name">Last Name</label>
-                                  <input type="text" name="last_name" class="form-control" id="last-name" placeholder="Last name">
+                                  <label class="form-label" for="last-name">Health Insurance</label>
+                                  <input type="text" name="employee_no" class="form-control" id="last-name" placeholder="Employee Number">
                                 </div>
                               </div>
-                              <div class="col-md-4">
+                              <span><br></span>
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="form-label" for="email">Email Address</label>
-                                  <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
+                                  <label class="form-label" for="email">Unpaid Leave</label>
+                                  <input type="date" name="payroll_date" class="form-control" id="email" placeholder="Payroll Date">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="email">Tax Deduction</label>
+                                  <input type="text" name="basic_salary" class="form-control" id="email" placeholder="Basic Salary">
+                                </div>
+                              </div>
+                              <span><br></span>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-label" for="address-st"> Salary Loan </label>
+                                  <input type="text" name="overtime" class="form-control" id="address-st" placeholder="Overtime">
                                 </div>
                               </div>
 
-                              <div class="col-md-6">
+                              <span><br></span>
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <label class="form-label" for="address-st">Status</label>
-                                  <select class="form-select js-select2" name="status">
-                                    <option>Active</option>
-                                    <option>Suspended</option>
-                                  </select>
+                                  <label class="form-label" for="address-st"> Total Deductions </label>
+                                  <input type="text" name="bonuses" class="form-control" id="address-st" placeholder="Bonuses">
                                 </div>
                               </div>
 
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label" for="address-st">Customer ID</label>
-                                  <input type="text" name="customer_id" class="form-control" id="address-st" placeholder="Customer Id">
-                                </div>
-                              </div>
 
                               <hr>
 
-
-                              <div class="col-md-12">
-                                <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                  <li>
-                                    <button name="create_customer" class="btn btn-primary">Add Customer</button>
-                                  </li>
-
-                                </ul>
-                              </div>
                             </div>
                           </form>
                         </div>

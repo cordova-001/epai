@@ -154,44 +154,6 @@
                     </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
 
-                <li class="nk-menu-item has-sub">
-                    <a href="chart_of_account" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
-                        <span class="nk-menu-text">Chart of Account </span>
-                    </a>
-
-                </li><!-- .nk-menu-item -->
-
-                <li class="nk-menu-item has-sub">
-                    <a href="#" class="nk-menu-link nk-menu-toggle">
-                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
-                        <span class="nk-menu-text">Expenses </span>
-                    </a>
-                    <ul class="nk-menu-sub">
-                        <li class="nk-menu-item">
-                            <a href="add_expenses" class="nk-menu-link"><span class="nk-menu-text">Add Expenses</span></a>
-                        </li>
-                        <li class="nk-menu-item">
-                            <a href="view_expenses" class="nk-menu-link"><span class="nk-menu-text">View Expenses </span></a>
-                        </li>
-                    </ul><!-- .nk-menu-sub -->
-                </li><!-- .nk-menu-item -->
-
-                <li class="nk-menu-item has-sub">
-                    <a href="#" class="nk-menu-link nk-menu-toggle">
-                        <span class="nk-menu-icon"><em class="icon ni ni-property-add"></em></span>
-                        <span class="nk-menu-text">Income </span>
-                    </a>
-                    <ul class="nk-menu-sub">
-                        <li class="nk-menu-item">
-                            <a href="add_income" class="nk-menu-link"><span class="nk-menu-text">Add Income</span></a>
-                        </li>
-                        <li class="nk-menu-item">
-                            <a href="view_income" class="nk-menu-link"><span class="nk-menu-text">View Income </span></a>
-                        </li>
-                    </ul><!-- .nk-menu-sub -->
-                </li><!-- .nk-menu-item -->
-
 
 
                 <li class="nk-menu-item has-sub">
@@ -233,12 +195,12 @@
                         <span class="nk-menu-text"> Accounting</span>
                     </a>
                     <ul class="nk-menu-sub">
-                        <!-- <li class="nk-menu-item">
+                        <li class="nk-menu-item">
                             <a href="chart_of_account" class="nk-menu-link"><span class="nk-menu-text">Chart of Account</span></a>
                         </li>
                         <li class="nk-menu-item">
                             <a href="income_and_expenditure" class="nk-menu-link"><span class="nk-menu-text">Inome and Expenditure</span></a>
-                        </li> -->
+                        </li>
                         <li class="nk-menu-item">
                             <a href="#" class="nk-menu-link"><span class="nk-menu-text">NAIC Account</span></a>
                         </li>

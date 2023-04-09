@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+  <base href="">
+  <meta charset="utf-8">
+  <meta name="author" content="Softnio">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Microfinance Software, loan system developed by Articulate Technologies Concept.">
+  <!-- Fav Icon  -->
+  <link rel="shortcut icon" href="./images/favicon.png">
+  <!-- Page Title  -->
+  <title>Financial Automation System</title>
+  <!-- StyleSheets  -->
+  <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.0.3">
+  <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.0.3">
+</head>
+
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+  <div class="nk-app-root">
+    <!-- main @s -->
+    <div class="nk-main ">
+      <!-- sidebar @s -->
+      <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
+
+        <?php include 'nav.php'; ?>
+      </div>
+      <!-- sidebar @e -->
+      <!-- wrap @s -->
+      <div class="nk-wrap ">
+        <!-- main header @s -->
+        <?php include 'top.php'; ?>
+        <!-- main header @e -->
+        <!-- content @s -->
+        <div class="nk-content ">
+          <div class="container-fluid">
+            <div class="nk-content-inner">
+              <div class="nk-content-body">
+                <div class="nk-block-head nk-block-head-sm">
+                  <div class="nk-block-between">
+                    <div class="nk-block-head-content">
+                      <h3 class="nk-block-title page-title">Add Expenses</h3>
+                    </div><!-- .nk-block-head-content -->
+                  </div><!-- .nk-block-between -->
+                </div><!-- .nk-block-head -->
+                <div class="nk-block nk-block-lg">
+                  <div class="card">
+                    <div class="card-inner">
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="tabItem5">
+                          <!-- <h4 class="title nk-block-title">Deposit Management</h4> -->
+                          <!-- <p>Processing of loan application.</p> -->
+                          <form action="deposit_details.php" method="GET" class="gy-3 form-settings">
+                            <div class="row g-3 align-center">
+
+
+                            </div>
+
+                            <div class="row g-3 align-center">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-label" for="site-email">Expense Type</label>
+
+                                </div>
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="form-group">
+                                  <div class="form-control-wrap">
+                                    <select class='form-select js-select2' name='expense_type'>
+                                      <?php
+                                      include 'php/connect.inc.php';
+                                      $select = "SELECT * FROM chart_of_account WHERE type = 'Expenses'";
+                                      $query = mysqli_query($connect, $select);
+                                      while ($row = mysqli_fetch_assoc($query)) {
+                                        $name = $row['name'];
+
+                                        echo "
+                                                                            <option>$name</option>
+                                                                            ";
+                                      }
+                                      ?>
+
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row g-3 align-center">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-label" for="site-copyright">Expense Item</label>
+
+                                </div>
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="form-group">
+                                  <div class="form-control-wrap">
+                                    <input type="text" name="lamount" class="form-control" id="site-copyright">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row g-3 align-center">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-label" for="site-copyright">Expense Amount</label>
+
+                                </div>
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="form-group">
+                                  <div class="form-control-wrap">
+                                    <input type="number" name="lamount" class="form-control" id="site-copyright">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row g-3 align-center">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-label">Expense Date</label>
+
+                                </div>
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="form-group">
+                                  <div class="form-control-wrap">
+                                    <input type="date" class="form-control" name="date">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row g-3 align-center">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-label">Description</label>
+
+                                </div>
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="form-group">
+                                  <div class="form-control-wrap">
+                                    <input type="text" class="form-control" name="date">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row g-3 align-center">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-label">Upload Invoices / Receipts</label>
+
+                                </div>
+                              </div>
+                              <div class="col-lg-8">
+                                <div class="form-group">
+                                  <div class="form-control-wrap">
+                                    <div class="form-file">
+                                      <input type="file" multiple class="form-file-input" id="customMultipleFiles">
+                                      <label class="form-file-label" for="customMultipleFiles">Choose files</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+
+                            <div class="row g-3">
+                              <div class="col-lg-7">
+                                <div class="form-group mt-2">
+                                  <button type="submit" name="deposit" value="Proceed" class="btn btn-lg btn-primary">Proceed</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <!--tab pan -->
+
+
+                      </div>
+                    </div>
+                    <!--card inner-->
+                  </div>
+                  <!--card-->
+                </div>
+                <!--nk-block-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content @e -->
+        <!-- footer @s -->
+        <?php include 'footer.php'; ?>
+        <!-- footer @e -->
+      </div>
+      <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
+  </div>
+  <!-- app-root @e -->
+  <!-- select region modal -->
+
+
+  <!-- JavaScript -->
+  <script src="./assets/js/bundle.js?ver=3.0.3"></script>
+  <script src="./assets/js/scripts.js?ver=3.0.3"></script>
+</body>
+
+</html>

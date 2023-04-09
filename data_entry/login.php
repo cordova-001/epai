@@ -147,7 +147,6 @@
                                 <div class="form-group">
                                     <label class="form-label" for="first-name">Email</label>
                                     <input type="text" name="email" class="form-control" id="first-name" placeholder="Email">
-                                    <input type="text" name="role" value="client_support" />
                                 </div>
                             </div>
                             <div class="col-md-7">

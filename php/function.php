@@ -154,16 +154,17 @@ function checkLogin()
   }
 }
 
-function accountLogin()
+function clientSupportLogin()
 {
-  if (isset($_POST['log_usr_acct'])) {
+  if (isset($_POST['clientSupport'])) {
     $role = htmlentities(addslashes($_POST['role']));
-    $org_user = htmlentities(addslashes($_POST['org_user']));
-    $pwd_real = htmlentities(addslashes($_POST['pwrd_real']));
-    $passhash = md5($pwd_real);
-    if ($role = "Administrator") {
+    $email = htmlentities(addslashes($_POST['email']));
+    $pword = htmlentities(addslashes($_POST['pword']));
+    $bid = htmlentities(addslashes($_POST['bid']));
+    $passhash = md5($pword);
+    if ($role == "client_support") {
       include 'connect.inc.php';
-      $check = "SELECT * FROM accountsetup WHERE urUsername = '$org_user' AND urPword = '$passhash'";
+      $check = "SELECT * FROM staff WHERE email = '$email' AND urPword = '$passhash' AND bid = '$bid' ";
       $qry = mysqli_query($connect, $check);
       if (mysqli_num_rows($qry) == 0) {
         echo "<script>alert('Invalid login. Contact the admin officer')</script>";

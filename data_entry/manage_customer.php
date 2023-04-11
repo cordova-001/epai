@@ -42,39 +42,31 @@
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between">
                                         <div class="nk-block-head-content">
-                                            <h3 class="nk-block-title page-title"> Staff Management</h3>
+                                            <h3 class="nk-block-title page-title"> Customer Management</h3>
                                         </div>
+                                        <div class="nk-block-head-content">
+                                            <div class="toggle-wrap nk-block-tools-toggle">
+                                                <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="more-options"><em class="icon ni ni-more-v"></em></a>
+                                                <div class="toggle-expand-content" data-content="more-options">
+                                                    <ul class="nk-block-tools g-3">
+                                                        <li>
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+                                                                    <em class="icon ni ni-search"></em>
+                                                                </div>
+                                                                <input type="text" class="form-control" id="default-04" placeholder="Search by name">
+                                                            </div>
+                                                        </li>
 
-
-                                        <div class="nk-block nk-block-lg" style="border: 1px solid;">
-
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-inner">
-                                                <div class="tab-content">
-                                                    <div class="tab-pane active" id="tabItem5">
-                                                        <!-- <h4 class="title nk-block-title">Edit Staff</h4> -->
-                                                        <!-- <p>Processing of loan application.</p> -->
-                                                        <ul class="nk-block-tools g-3">
-
-
-                                                            <li class="nk-block-tools-opt">
-                                                                <a href="#" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
-                                                                <a class="btn btn-primary d-none d-md-inline-flex" data-bs-toggle="modal" href="#instructor-add"><em class="icon ni ni-plus"></em><span>Add</span></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <!--tab pan -->
-
-
+                                                        <li class="nk-block-tools-opt">
+                                                            <a href="#" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
+                                                            <a class="btn btn-primary d-none d-md-inline-flex" href="add_customer"><em class="icon ni ni-plus"></em><span>Add</span></a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                            <!--card inner-->
-                                        </div>
-                                        <!--card-->
-                                    </div>
-
-
+                                        </div><!-- .nk-block-head-content -->
+                                    </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
                                 <div class="nk-block">
                                     <div class="card">
@@ -82,26 +74,19 @@
                                             <div class="card-inner p-0">
                                                 <div class="nk-tb-list nk-tb-ulist">
                                                     <div class="nk-tb-item nk-tb-head">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid">
-                                                                <label class="custom-control-label" for="uid"></label>
-                                                            </div>
-                                                        </div>
+
                                                         <div class="nk-tb-col"><span class="sub-text">Name</span></div>
                                                         <div class="nk-tb-col tb-col-md"><span class="sub-text">Phone</span></div>
                                                         <div class="nk-tb-col tb-col-lg"><span class="sub-text">Email</span></div>
-                                                        <div class="nk-tb-col tb-col-lg"><span class="sub-text">Staff ID</span></div>
-                                                        <div class="nk-tb-col tb-col-mb"><span class="sub-text"></span>Role</div>
+                                                        <div class="nk-tb-col tb-col-lg"><span class="sub-text">Customer ID</span></div>
+                                                        <div class="nk-tb-col tb-col-mb"><span class="sub-text"></span>Address</div>
                                                         <div class="nk-tb-col tb-col-md"><span class="sub-text">Status</span></div>
                                                         <div class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1 my-n1">
                                                                 <li>
                                                                     <div class="drodown">
                                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
 
-                                                                        </div>
                                                                     </div>
                                                                 </li>
                                                             </ul>
@@ -110,25 +95,27 @@
 
                                                     <?php
                                                     include 'php/connect.inc.php';
-                                                    $select = "SELECT * FROM staff";
+                                                    $select = "SELECT * FROM customer";
                                                     $query = mysqli_query($connect, $select);
                                                     while ($row = mysqli_fetch_assoc($query)) {
                                                         $fname = $row['first_name'];
                                                         $lname = $row['last_name'];
                                                         $phone = $row['phone'];
                                                         $email = $row['email'];
-                                                        $staff_id = $row['staff_id'];
-                                                        $role = $row['role'];
+                                                        $gender = $row['gender'];
+                                                        $address = $row['address'];
+                                                        $state_of_origin = $row['state_of_origin'];
+                                                        $lga = $row['lga'];
+                                                        $next_of_kin = $row['next_of_kin'];
+                                                        $addy_of_nok = $row['addy_of_nok'];
+                                                        $date_of_birth = $row['date_of_birth'];
+                                                        $occupation = $row['occupation'];
+                                                        $customer_id = $row['customer_id'];
                                                         $status = $row['status'];
                                                         echo "<div class='nk-tb-item'>
-                                                        <div class='nk-tb-col nk-tb-col-check'>
-                                                            <div class='custom-control custom-control-sm custom-checkbox notext'>
-                                                                <input type='checkbox' class='custom-control-input' id='uid1'>
-                                                                <label class='custom-control-label' for='uid1'></label>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class='nk-tb-col'>
-                                                            <a href='html/lms/instructor-details.html'>
+                                                            
                                                                 <div class='user-card'>
 
                                                                     <div class='user-info'>
@@ -136,7 +123,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            
                                                         </div>
                                                         <div class='nk-tb-col tb-col-md'>
                                                             <span>$phone</span>
@@ -145,10 +132,10 @@
                                                             <span>$email</span>
                                                         </div>
                                                         <div class='nk-tb-col tb-col-lg'>
-                                                            <span>$staff_id</span>
+                                                            <span>$customer_id</span>
                                                         </div>
                                                         <div class='nk-tb-col tb-col-md'>
-                                                            <span class='tb-status text-success'>$role</span>
+                                                            <span class='tb-status text-success'>$address</span>
                                                         </div>
 
                                                         <div class='nk-tb-col tb-col-md'>
@@ -158,21 +145,18 @@
                                                             <ul class='nk-tb-actions gx-1'>
 
                                                                 <li>
-                                                                <form method='get'>
                                                                     <div class='drodown'>
-                                                                    <li><input name='id' type='input' hidden value='$staff_id' class='icon ni ni-eye' /></li>
+                                                                    <form method='get'>
                                                                         <a href='' class='dropdown-toggle btn btn-icon btn-trigger' data-bs-toggle='dropdown'><em class='icon ni ni-more-h'></em></a>
                                                                         <div class='dropdown-menu dropdown-menu-end'>
                                                                             <ul class='link-list-opt no-bdr'>
-                                                                              <li><input name='click' type='submit' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li>
-                                                                              <br>
-                                                                              
-                                                                              <li><input name='edit_staff' formaction='edit_staff' type='submit' style='border: 0px; background-color: white; float: center;' value='Edit Staff' class='icon ni ni-eye' /></li>
-                                                                                
+                                                                              <li><input name='client_details' type='submit' formaction='customer_details' style='border: 0px; background-color: white; float: center;' value='View Details' class='icon ni ni-eye' /></li><br>
+                                                                              <li><input type='text' name='customer_id'  hidden value='$customer_id'  /></li>
+                                                                                <li><input name='edit_client' type='submit' formaction='edit_client' style='border: 0px; background-color: white; float: center;' value='Edit Customer' class='icon ni ni-eye' /></li>
                                                                             </ul>
                                                                         </div>
+                                                                        </form>
                                                                     </div>
-                                                                </form>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -189,9 +173,22 @@
                                             </div>
                                             <div class="card-inner">
                                                 <div class="nk-block-between-md g-3">
-
+                                                    <!-- <div class="g">
+                                                        <ul class="pagination justify-content-center justify-content-md-start">
+                                                            <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-left"></em></a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                            <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
+                                                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-right"></em></a></li>
+                                                        </ul> .pagination 
+                                                    </div> -->
                                                     <div class="g">
+                                                        <!-- <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
+                                                            <div>Page</div>
 
+                                                        </div> -->
                                                     </div><!-- .pagination-goto -->
                                                 </div><!-- .nk-block-between -->
                                             </div>
@@ -222,8 +219,8 @@
             <div class="modal-content">
                 <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                 <div class="modal-body modal-body-md">
-                    <h5 class="title">Add A Staff </h5>
-                    <?php createStaff(); ?>
+                    <h5 class="title">Add A Customer </h5>
+                    <?php customerRegistration(); ?>
                     <form action="#" class="pt-2" method="POST">
                         <div class="row gy-4">
                             <div class="col-md-6">
@@ -252,42 +249,88 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label" for="address-l1">Role</label>
-                                    <select class="form-select js-select2" id="gender" name="role">
-                                        <option>Data Entry Officer</option>
-                                        <option>Client Support Officer</option>
-                                        <option>Branch Manager</option>
-                                        <option>Auditor</option>
-                                        <option>Monitoring Personnel</option>
-                                        <option>Area Inspector</option>
-                                        <option>Regional Supervisor</option>
+                                    <label class="form-label" for="address-l1">Gender</label>
+                                    <select class="form-select js-select2" id="gender" name="gender">
+                                        <option>Male</option>
+                                        <option>Female</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-line2">Address</label>
+                                    <input type="text" class="form-control" name="address" id="address-line2" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="country">State of Origin</label>
+                                    <select class="form-select js-select2" name="state_of_origin">
+                                        <option>Abia State</option>
+                                        <option>Adamwa State</option>
+                                        <option>Akwa Ibom</option>
+                                        <option>Anambra State</option>
+                                        <option>Bauchi State</option>
+                                        <option>Bayelsa State</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Local Government</label>
+                                    <input type="text" name="lga" class="form-control" id="address-st" placeholder="Local Govt">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label" for="address-l1">Status</label>
-                                    <select class="form-select js-select2" id="gender" name="status">
+                                    <label class="form-label" for="address-st">Next of Kin</label>
+                                    <input type="text" name="next_of_kin" class="form-control" id="address-st" placeholder="Next of Kin">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">addy_of_nok</label>
+                                    <input type="text" name="addy_of_nok" class="form-control" id="address-st" placeholder="Address of Kin">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Date of Birth</label>
+                                    <input type="date" name="date_of_birth" class="form-control" id="address-st" placeholder="Date of Birth">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Occupation</label>
+                                    <input type="text" name="occupation" class="form-control" id="address-st" placeholder="occupation">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Status</label>
+                                    <select class="form-select js-select2" name="status">
                                         <option>Active</option>
-                                        <option>Inactive</option>
-                                        <option>Suspend</option>
-
+                                        <option>Suspended</option>
                                     </select>
                                 </div>
                             </div>
 
-
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label" for="address-st">Staff ID</label>
-                                    <input type="text" name="staff_id" class="form-control" id="address-st" placeholder="Staff Id">
+                                    <label class="form-label" for="address-st">Customer ID</label>
+                                    <input type="text" name="customer_id" class="form-control" id="address-st" placeholder="Customer Id">
                                 </div>
                             </div>
+
+                            <hr>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label" for="address-l1">Branch</label>
-                                    <select class='form-select js-select2' id='branch' name='bname'>
+                                    <label class="form-label" for="address-st">Branch</label>
+                                    <select class='form-select js-select2' id='branch' name='branch'>
                                         <?php
                                         include 'php/connect.inc.php';
                                         $select = "SELECT * FROM branch";
@@ -296,13 +339,52 @@
                                             $bid = $row['branch_id'];
                                             $bname = $row['branch'];
 
-                                            echo "<option value='$bid'>$bname</option>";
+                                            echo "<option>$bname</option>";
                                         }
                                         ?>
 
                                     </select>
+                                </div>
+                            </div>
 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Center</label>
+                                    <select class='form-select js-select2' id='branch' name='center'>
+                                        <?php
+                                        include 'php/connect.inc.php';
+                                        $select = "SELECT * FROM center";
+                                        $query = mysqli_query($connect, $select);
+                                        while ($row = mysqli_fetch_assoc($query)) {
+                                            $cid = $row['center_id'];
+                                            $cname = $row['center_name'];
 
+                                            echo "<option>$cname</option>";
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Utility Bill</label>
+                                    <input type="file" name="utility" class="form-control" id="address-st" placeholder="Utility Bill">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Identity Card</label>
+                                    <input type="file" name="id" class="form-control" id="address-st" placeholder="Identity Card">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="address-st">Passport</label>
+                                    <input type="file" name="passport" class="form-control" id="address-st" placeholder="Passport">
                                 </div>
                             </div>
 
@@ -310,7 +392,7 @@
                             <div class="col-md-12">
                                 <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
                                     <li>
-                                        <button name="createStaff" class="btn btn-primary">Add Staff</button>
+                                        <button name="create_customer" class="btn btn-primary">Add Customer</button>
                                     </li>
 
                                 </ul>

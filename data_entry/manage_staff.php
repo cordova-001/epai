@@ -296,7 +296,7 @@
                                             $bid = $row['branch_id'];
                                             $bname = $row['branch'];
 
-                                            echo "<option value='$bid'>$bname</option>";
+                                            echo "<option>$bname</option>";
                                         }
                                         ?>
 

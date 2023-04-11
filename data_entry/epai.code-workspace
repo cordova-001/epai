@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "../primax"
+	}
+],
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic"
+  }
+}

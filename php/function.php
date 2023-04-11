@@ -127,7 +127,9 @@ function createStaff()
     $status = htmlentities($_POST['status']);
     $staff_id = htmlentities($_POST['staff_id']);
     $branch_name = htmlentities($_POST['bname']);
-    // $branch = htmlentities($_POST['branch']);
+    $pword = rand(2345234, 9898989);
+    $passhash = md5($pword);
+    $branch = htmlentities($_POST['branch']);
     include 'connect.inc.php';
     $check = "SELECT * FROM staff WHERE phone = '$phone' || staff_id = '$staff_id'";
     $query = mysqli_query($connect, $check);
@@ -136,11 +138,29 @@ function createStaff()
       echo "<script>alert('The staff with this phone number or staff ID already exist')</script>";
     } else {
       $insert = "INSERT INTO staff
-      (first_name, last_name,  phone, email, role, staff_id, status, branch)
+      (first_name, last_name,  phone, email, password, role, staff_id, status, branch)
       VALUES
-      ('$first_name', '$last_name', '$phone', '$email', '$role', '$staff_id', '$status', '$branch_name')";
+      ('$first_name', '$last_name', '$phone', '$email', '$passhash', '$role', '$staff_id', '$status', '$branch_name')";
       if (mysqli_query($connect, $insert)) {
-        echo "<script>alert('The staff details has been registered successfully')</script>";
+        echo "<script>alert('The staff details has been registered successfully $pword')</script>";
+        $to = $email;
+        $subject = "Staff Account Setup on EPAI";
+        $message = "Welcome " . $first_name . $last_name . " to EPAI 
+        
+        Your staff account has been setup for you for proper operation.
+        
+        Find your account details below:-
+        
+        Login Email: $email
+        
+        Password: $pword
+        
+        You contact the admin for the login url";
+
+        $header = "From: admin@epai.com.ng";
+        mail($to, $subject, $message, $header);
+      } else {
+        echo "<script>alert('The staff could not be registered')</script>";
       }
     }
   }
